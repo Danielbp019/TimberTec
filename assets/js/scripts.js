@@ -35,7 +35,7 @@ function calcularGasto() {
     const consumoDiarioKWh = (consumo * usoDiario) / 1000;
     const gastoDiario = consumoDiarioKWh * costeEnergia;
     const gastoMensual = gastoDiario * 30;
-    const gastoAnual = gastoMensual * 365;
+    const gastoAnual = gastoDiario * 365;
 
     const calculo = {
         // Se guardan los valores
