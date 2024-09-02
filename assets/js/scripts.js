@@ -40,6 +40,7 @@ function calcularGasto() {
     const calculo = {
         // Se guardan los valores
         alias: alias,
+        costeEnergia: costeEnergia,
         consumo: consumo,
         usoDiario: usoDiario,
         gastoMensual: gastoMensual.toFixed(2),
@@ -51,11 +52,11 @@ function calcularGasto() {
     if (calculos.length > 10) {
         calculos.pop();
     }
-
-    // Actualizar la tabla
+    // Actualizar la tabla del historial
     actualizarTabla();
 }
 
+// Actualizar la tabla del historial
 function actualizarTabla() {
     const tbody = document.getElementById('tablaCalculos').getElementsByTagName('tbody')[0];
     tbody.innerHTML = '';
@@ -63,12 +64,14 @@ function actualizarTabla() {
     calculos.forEach(calculo => {
         const row = tbody.insertRow();
         const cellAlias = row.insertCell(0);
-        const cellConsumo = row.insertCell(1);
-        const cellUsoDiario = row.insertCell(2);
-        const cellGasto = row.insertCell(3);
-        const cellAnual = row.insertCell(4);
+        const cellcosteEnergia = row.insertCell(1);
+        const cellConsumo = row.insertCell(2);
+        const cellUsoDiario = row.insertCell(3);
+        const cellGasto = row.insertCell(4);
+        const cellAnual = row.insertCell(5);
 
         cellAlias.textContent = calculo.alias;
+        cellcosteEnergia.textContent = calculo.costeEnergia;
         cellConsumo.textContent = calculo.consumo;
         cellUsoDiario.textContent = calculo.usoDiario;
         cellGasto.textContent = calculo.gastoMensual;
