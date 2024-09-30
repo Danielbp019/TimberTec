@@ -1,29 +1,21 @@
-/* Todo este codigo es para los colores del boton dia y noche y el color del propio icono */
-.bi {
-    vertical-align: -.125em;
+/* Switch dia y noche */
+.form-switch-lg .form-check-input {
+    width: 3rem;
+    height: 1.5rem;
+}
+
+.form-switch-lg .form-check-input:checked {
+    background-color: #0d6efd;
+}
+
+.form-switch-lg .form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.theme-icon-active {
     fill: currentColor;
 }
 
-.btn-bd-primary {
-    --bd-violet-bg: #712cf9;
-    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
-    --bs-btn-font-weight: 600;
-    --bs-btn-color: var(--bs-white);
-    --bs-btn-bg: var(--bd-violet-bg);
-    --bs-btn-border-color: var(--bd-violet-bg);
-    --bs-btn-hover-color: var(--bs-white);
-    --bs-btn-hover-bg: #6528e0;
-    --bs-btn-hover-border-color: #6528e0;
-    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-    --bs-btn-active-color: var(--bs-btn-hover-color);
-    --bs-btn-active-bg: #5a23c8;
-    --bs-btn-active-border-color: #5a23c8;
-}
-
-.bd-mode-toggle {
-    z-index: 1500;
-}
-
-.bd-mode-toggle .dropdown-menu .active .bi {
-    display: block !important;
+.theme-dark .theme-icon-active {
+    color: white;
 }
