@@ -41,14 +41,42 @@ for (let i = 1; i <= 24; i++) {
     usoDiarioSelect.appendChild(option);
 }
 
+// Almacena los resultados de los cálculos que realizas cada vez que se ejecuta la función calcularGasto
 const calculos = [];
 
+// Activar la validación de Bootstrap
+(function () {
+    'use strict';
+    // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+    var forms = document.querySelectorAll('.needs-validation');
+    // Bucle sobre ellos y evitar el envío
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+})();
+
 function calcularGasto() {
-    // Si el valor no esta presente se pone 0 o Sin Alias segun corresponda
-    const alias = document.getElementById('alias').value || 'Sin Alias';
-    const costeEnergia = parseFloat(document.getElementById('costeEnergia').value) || 0;
-    const consumo = parseFloat(document.getElementById('consumo').value) || 0;
-    const usoDiario = parseFloat(document.getElementById('usoDiario').value) || 0;
+    // Obtener el formulario
+    const form = document.getElementById('form');
+
+    // Verificar si el formulario es válido
+    if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+    }
+
+    // Obtener los valores de los campos
+    const alias = document.getElementById('alias').value;
+    const costeEnergia = parseFloat(document.getElementById('costeEnergia').value);
+    const consumo = parseFloat(document.getElementById('consumo').value);
+    const usoDiario = parseFloat(document.getElementById('usoDiario').value);
 
     const consumoDiarioKWh = (consumo * usoDiario) / 1000;
     const gastoDiario = consumoDiarioKWh * costeEnergia;
