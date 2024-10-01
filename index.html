@@ -50,7 +50,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="costeEnergia" class="form-label">Costo de Energía (kWh) (*):</label>
-                                <input type="number" id="costeEnergia" name="costeEnergia" class="form-control"
+                                <input type="number" id="costeEnergia" name="costeEnergia" class="form-control" min="1"
                                     required>
                                 <div class="invalid-feedback">
                                     El campo Costo de Energía es requerido.
@@ -58,7 +58,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="consumo" class="form-label">Consumo (W) (*):</label>
-                                <input type="number" id="consumo" name="consumo" class="form-control" required>
+                                <input type="number" id="consumo" name="consumo" class="form-control" min="1" required>
                                 <div class="invalid-feedback">
                                     El campo Consumo es requerido.
                                 </div>
