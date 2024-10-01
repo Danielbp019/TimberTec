@@ -77,11 +77,30 @@ function calcularGasto() {
     const costeEnergia = parseFloat(document.getElementById('costeEnergia').value);
     const consumo = parseFloat(document.getElementById('consumo').value);
     const usoDiario = parseFloat(document.getElementById('usoDiario').value);
+    const moneda = document.getElementById('moneda').value;
 
     const consumoDiarioKWh = (consumo * usoDiario) / 1000;
     const gastoDiario = consumoDiarioKWh * costeEnergia;
     const gastoMensual = gastoDiario * 30;
     const gastoAnual = gastoDiario * 365;
+
+    // Definir el formato de moneda según la selección del usuario
+    let formatoMoneda;
+    let simboloMoneda;
+    if (moneda === 'COP') {
+        formatoMoneda = ['es-CO', { style: 'currency', currency: 'COP' }];
+        simboloMoneda = 'COP';
+    } else if (moneda === 'USD') {
+        formatoMoneda = ['en-US', { style: 'currency', currency: 'USD' }];
+        simboloMoneda = 'USD';
+    } else if (moneda === 'EUR') {
+        formatoMoneda = ['de-DE', { style: 'currency', currency: 'EUR' }];
+        simboloMoneda = 'EUR';
+    }
+
+    // Formatear el gasto anual y mensual usando el formato de moneda seleccionado
+    const gastoAnualFormateado = `${simboloMoneda} ${gastoAnual.toLocaleString(...formatoMoneda)}`;
+    const gastoMensualFormateado = `${simboloMoneda} ${gastoMensual.toLocaleString(...formatoMoneda)}`;
 
     const calculo = {
         // Se guardan los valores
@@ -89,8 +108,8 @@ function calcularGasto() {
         costeEnergia: costeEnergia,
         consumo: consumo,
         usoDiario: usoDiario,
-        gastoMensual: gastoMensual.toFixed(2),
-        gastoAnual: gastoAnual.toFixed(2)
+        gastoAnualFormateado: gastoAnualFormateado,
+        gastoMensualFormateado: gastoMensualFormateado
     };
 
     // Agregar el cálculo a la lista y mantener solo los últimos 10
@@ -120,7 +139,7 @@ function actualizarTabla() {
         cellcosteEnergia.textContent = calculo.costeEnergia;
         cellConsumo.textContent = calculo.consumo;
         cellUsoDiario.textContent = calculo.usoDiario;
-        cellGasto.textContent = calculo.gastoMensual;
-        cellAnual.textContent = calculo.gastoAnual;
+        cellGasto.textContent = calculo.gastoMensualFormateado;
+        cellAnual.textContent = calculo.gastoAnualFormateado;
     });
 }

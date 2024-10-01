@@ -23,7 +23,7 @@
         <section class="container pt-4">
             <div class="row mb-9">
                 <div class="lc-block text-center">
-                    <h2 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h2>
+                    <h3 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h3>
                 </div>
                 <div class="lc-block text-center">
                     <h5>Instrucción de uso:</h5>
@@ -51,15 +51,14 @@
                             <div class="mb-3">
                                 <label for="costeEnergia" class="form-label">Costo de Energía (kWh) (*):</label>
                                 <input type="number" id="costeEnergia" name="costeEnergia" class="form-control"
-                                    pattern="\d+" title="Solo se permiten números" required>
+                                    required>
                                 <div class="invalid-feedback">
                                     El campo Costo de Energía es requerido.
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="consumo" class="form-label">Consumo (W) (*):</label>
-                                <input type="number" id="consumo" name="consumo" class="form-control" pattern="\d+"
-                                    title="Solo se permiten números" required>
+                                <input type="number" id="consumo" name="consumo" class="form-control" required>
                                 <div class="invalid-feedback">
                                     El campo Consumo es requerido.
                                 </div>
@@ -73,12 +72,23 @@
                                     El campo Uso Diario es requerido.
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <label for="moneda" class="form-label">Moneda (Seleccione el formato) (*):</label>
+                                <select id="moneda" name="moneda" class="form-control" required>
+                                    <option value="COP">COP - Peso Colombiano</option>
+                                    <option value="USD">USD - Dólar Estadounidense</option>
+                                    <option value="EUR">EUR - Euro</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    El campo Moneda es requerido.
+                                </div>
+                            </div>
                             <button type="button" class="btn btn-primary" onclick="calcularGasto()">Calcular</button>
                             <button type="reset" class="btn btn-warning">Reiniciar</button>
                         </form>
                         <br>
-                        <div class="text-white-50">
-                            <p>Hecho por Daniel Bautista Pradilla.</p>
+                        <div class="lc-block text-center">
+                            <caption>Hecho por Daniel Bautista Pradilla.</caption>
                         </div>
                     </fieldset>
                 </div>
