@@ -6,111 +6,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Daniel Bautista Pradilla">
     <title>Calculadora de Consumo Eléctrico</title>
-
-    <link href="assets/img/elec32x32.png" rel="icon">
+    <link rel="icon" href="assets/img/elec32x32.png">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <link href="assets/css/consumo.css" rel="stylesheet">
-    <link href="assets/css/normalizev8.0.1.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/consumo.css">
+    <link rel="stylesheet" href="assets/css/normalizev8.0.1.css">
 </head>
 
 <body>
-    <main>
-        <section class="container pt-4">
-            <div class="row mb-9">
-                <div class="lc-block text-center">
-                    <h3 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h3>
+    <main class="container-fluid justify-content-center pt-3">
+        <header class="text-center mb-4">
+            <h1 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h1>
+            <h2>Instrucción de uso:</h2>
+            <p class="lead">El campo alias es un sobrenombre al cálculo que realizarás. El Costo de Energía (kWh) puedes
+                verlo en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio, consumo (W)
+                es el consumo del aparato a medir, selecciona las horas de uso y el tipo de moneda.</p>
+        </header>
+        <section class="row">
+            <article class="col-md-3 mb-3">
+                <div class="card bg-transparent" style="backdrop-filter: blur(20px);">
+                    <div class="card-body">
+                        <fieldset>
+                            <legend>Datos</legend>
+                            <form id="form" class="needs-validation" novalidate>
+                                <div class="mb-3">
+                                    <label for="alias" class="form-label">Alias (*):</label>
+                                    <input type="text" id="alias" name="alias" class="form-control" required>
+                                    <div class="invalid-feedback">
+                                        El campo Alias es requerido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="costeEnergia" class="form-label">Costo de Energía (kWh) (*):</label>
+                                    <input type="number" id="costeEnergia" name="costeEnergia" class="form-control"
+                                        min="1" required>
+                                    <div class="invalid-feedback">
+                                        El campo Costo de Energía es requerido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="consumo" class="form-label">Consumo (W) (*):</label>
+                                    <input type="number" id="consumo" name="consumo" class="form-control" min="1"
+                                        required>
+                                    <div class="invalid-feedback">
+                                        El campo Consumo es requerido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="usoDiario" class="form-label">Uso Diario (Seleccione las horas)
+                                        (*):</label>
+                                    <select id="usoDiario" name="usoDiario" class="form-control" required>
+                                        <!-- Las opciones se generarán dinámicamente con JavaScript -->
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        El campo Uso Diario es requerido.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="moneda" class="form-label">Moneda (Seleccione el formato)
+                                        (*):</label>
+                                    <select id="moneda" name="moneda" class="form-control" required>
+                                        <option value="COP">COP - Peso Colombiano</option>
+                                        <option value="USD">USD - Dólar Estadounidense</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        El campo Moneda es requerido.
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary"
+                                        onclick="calcularGasto()">Calcular</button>
+                                    <button type="reset" class="btn btn-warning">Reiniciar</button>
+                                </div>
+                            </form>
+                            <br>
+                            <div class="lc-block text-center">
+                                <caption>Hecho por <div id="miFirma" style="font-size: 31px;">Daniel Bautista
+                                        Pradilla.</div>
+                                </caption>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
-                <div class="lc-block text-center">
-                    <h5>Instrucción de uso:</h5>
-                    <p class="lead">El campo alias es un sobrenombre al cálculo que realizaras, el
-                        Costo de Energía (kWh) puedes verlo en el recibo de cobro de electricidad o en la web de la
-                        empresa que te da el servicio, Consumo (W) es el consumo del aparato a medir y finalmente las
-                        horas de uso.</p>
+            </article>
+            <article class="col-md-9 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <caption>Últimos 10 Cálculos</caption>
+                        <table id="tablaCalculos" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th style="width: 150px;">Alias</th>
+                                    <th>Costo de Energía (kWh)</th>
+                                    <th>Consumo (W)</th>
+                                    <th>Uso Diario (horas)</th>
+                                    <th>Gasto De Dinero Mensual (30 días)</th>
+                                    <th>Gasto De Dinero Anual (365 días)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
+            </article>
         </section>
-        <br>
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="row">
-                <div class="col-9 col-md-3">
-                    <fieldset>
-                        <legend>Datos</legend>
-                        <form id="form" class="needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="alias" class="form-label">Alias (*):</label>
-                                <input type="text" id="alias" name="alias" class="form-control" required>
-                                <div class="invalid-feedback">
-                                    El campo Alias es requerido.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="costeEnergia" class="form-label">Costo de Energía (kWh) (*):</label>
-                                <input type="number" id="costeEnergia" name="costeEnergia" class="form-control" min="1"
-                                    required>
-                                <div class="invalid-feedback">
-                                    El campo Costo de Energía es requerido.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="consumo" class="form-label">Consumo (W) (*):</label>
-                                <input type="number" id="consumo" name="consumo" class="form-control" min="1" required>
-                                <div class="invalid-feedback">
-                                    El campo Consumo es requerido.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="usoDiario" class="form-label">Uso Diario (Seleccione las horas) (*):</label>
-                                <select id="usoDiario" name="usoDiario" class="form-control" required>
-                                    <!-- Las opciones se generarán dinámicamente con JavaScript -->
-                                </select>
-                                <div class="invalid-feedback">
-                                    El campo Uso Diario es requerido.
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="moneda" class="form-label">Moneda (Seleccione el formato) (*):</label>
-                                <select id="moneda" name="moneda" class="form-control" required>
-                                    <option value="COP">COP - Peso Colombiano</option>
-                                    <option value="USD">USD - Dólar Estadounidense</option>
-                                    <option value="EUR">EUR - Euro</option>
-                                </select>
-                                <div class="invalid-feedback">
-                                    El campo Moneda es requerido.
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-primary" onclick="calcularGasto()">Calcular</button>
-                            <button type="reset" class="btn btn-warning">Reiniciar</button>
-                        </form>
-                        <br>
-                        <div class="lc-block text-center">
-                            <caption>Hecho por Daniel Bautista Pradilla.</caption>
-                        </div>
-                    </fieldset>
-                </div>
-                <div class="col-md-9">
-                    <caption>Últimos 9 Cálculos</caption>
-                    <table id="tablaCalculos" class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th style="width: 150px;">Alias</th>
-                                <th>Costo de Energía (kWh)</th>
-                                <th>Consumo (W)</th>
-                                <th>Uso Diario (horas)</th>
-                                <th>Gasto De Dinero Mensual (30 días)</th>
-                                <th>Gasto De Dinero Anual (365 días)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
 
         <!-- Cambio dia y noche iconos svg -->
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
@@ -139,10 +147,9 @@
                 </label>
             </div>
         </div>
+
     </main>
-
-
-
+    <script src="assets/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
 

@@ -114,7 +114,7 @@ function calcularGasto() {
 
     // Agregar el cálculo a la lista y mantener solo los últimos 10
     calculos.unshift(calculo);
-    if (calculos.length > 9) {
+    if (calculos.length > 10) {
         calculos.pop();
     }
     // Actualizar la tabla del historial
