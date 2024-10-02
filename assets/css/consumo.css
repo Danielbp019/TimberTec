@@ -35,3 +35,8 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+
+/* Margen inferior del boton dia y noche */
+.custom-margin {
+    margin-bottom: 6rem;
+}

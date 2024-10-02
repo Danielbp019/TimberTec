@@ -26,6 +26,9 @@ function updateThemeIcon(theme) {
 // *    Llamar a la función para actualizar el icono al cargar la página
 updateThemeIcon(savedTheme);
 
+// Tooltip
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 
 // Generar opciones para el select de Uso Diario (horas)
 const usoDiarioSelect = document.getElementById('usoDiario');

@@ -1,2 +1,7 @@
 User-agent: *
 Disallow: /assets/
+Disallow: /assets/css/
+Disallow: /assets/img/
+Disallow: /assets/js/
+Disallow: /assets/bootstrap-5.3.3-dist/
+Disallow: /assets/bootstrap-icons-1.11.3/
