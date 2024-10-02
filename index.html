@@ -28,7 +28,9 @@
         </header>
         <section class="row">
             <article class="col-md-3 mb-3">
-                <div class="card bg-transparent" style="backdrop-filter: blur(20px);">
+                <!-- Esto pone efecto de vidrio en la card para cuando hay un fondo
+                <div class="card bg-transparent" style="backdrop-filter: blur(20px);"> -->
+                <div class="card">
                     <div class="card-body">
                         <fieldset>
                             <legend>Datos</legend>
@@ -46,7 +48,7 @@
                                     <label for="costeEnergia" class="form-label">Costo de Energía (kWh) (*) <i
                                             class="bi bi-info-circle-fill" data-bs-toggle="tooltip"
                                             data-bs-placement="right"
-                                            data-bs-title="Esta en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio"></i>
+                                            data-bs-title="Está en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio"></i>
                                         :</label>
                                     <input type="number" id="costeEnergia" name="costeEnergia" class="form-control"
                                         min="1" required>
@@ -80,7 +82,7 @@
                                     <label for="moneda" class="form-label">Moneda (Seleccione el formato)
                                         (*) <i class="bi bi-info-circle-fill" data-bs-toggle="tooltip"
                                             data-bs-placement="right"
-                                            data-bs-title="Tipo de moneda para realizar el calculo"></i> :</label>
+                                            data-bs-title="Tipo de moneda para realizar el cálculo"></i> :</label>
                                     <select id="moneda" name="moneda" class="form-control" required>
                                         <option value="COP">COP - Peso Colombiano</option>
                                         <option value="USD">USD - Dólar Estadounidense</option>
@@ -165,7 +167,7 @@
         <!-- Cambio dia y noche switch -->
         <div class="position-fixed bottom-0 end-0 custom-margin me-3 bd-mode-toggle">
             <div class="form-check form-switch form-switch-lg">
-                <input class="form-check-input" type="checkbox" id="themeSwitch" aria-label="Toggle theme">
+                <input class="form-check-input glow" type="checkbox" id="themeSwitch" aria-label="Toggle theme">
                 <label class="form-check-label d-flex align-items-center" for="themeSwitch">
                     <svg class="bi my-1 theme-icon-active ms-2" width="1.5em" height="1.5em">
                         <use href="#"></use>
