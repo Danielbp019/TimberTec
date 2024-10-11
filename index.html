@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <main class="container-fluid justify-content-center pt-3">
+    <main class="container-fluid justify-content-center pt-2">
         <header class="text-center mb-4">
             <h1 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h1>
         </header>
@@ -50,8 +50,8 @@
                                             data-bs-placement="right"
                                             data-bs-title="Está en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio"></i>
                                         :</label>
-                                    <input type="number" id="costeEnergia" name="costeEnergia" class="form-control"
-                                        min="1" required>
+                                    <input type="number" step="0.1" pattern="\d+(\.\d{1,})?" id="costeEnergia"
+                                        name="costeEnergia" class="form-control" min="1" required>
                                     <div class="invalid-feedback">
                                         El campo Costo de Energía es requerido.
                                     </div>
@@ -61,8 +61,8 @@
                                             class="bi bi-info-circle-fill" data-bs-toggle="tooltip"
                                             data-bs-placement="right" data-bs-title="Consumo del aparato a medir"></i>
                                         :</label>
-                                    <input type="number" id="consumo" name="consumo" class="form-control" min="1"
-                                        required>
+                                    <input type="number" step="0.1" pattern="\d+(\.\d{1,})?" id="consumo" name="consumo"
+                                        class="form-control" min="1" required>
                                     <div class="invalid-feedback">
                                         El campo Consumo es requerido.
                                     </div>
