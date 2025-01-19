@@ -34,6 +34,16 @@
             left: 0;
             right: 0;
             bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+            /* Asegúrate de que el overlay tenga un z-index menor */
+        }
+
+        .overlay-button {
+            position: relative;
+            /* Asegúrate de que los botones tengan una posición relativa */
+            z-index: 2;
+            /* Un z-index mayor que el del overlay */
         }
 
         .card-cover h3 {
@@ -56,7 +66,8 @@
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                             <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Calculadora de consumo de energía</h3>
                             <div class="d-grid gap-2">
-                                <a href="calculadora.html" class="btn btn-warning" role="button">Ir a la Calculadora</a>
+                                <a href="calculadora.html" class="btn btn-warning overlay-button" role="button">Ir a la
+                                    Calculadora</a>
                             </div>
                         </div>
                     </div>
@@ -68,7 +79,8 @@
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                             <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Calculadora de presupuesto para PC</h3>
                             <div class="d-grid gap-2">
-                                <a href="presupuesto.html" class="btn btn-warning" role="button">Ir al Presupuesto</a>
+                                <a href="presupuesto.html" class="btn btn-warning overlay-button" role="button">Ir al
+                                    Presupuesto</a>
                             </div>
                         </div>
                     </div>
