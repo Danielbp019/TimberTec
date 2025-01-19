@@ -1,89 +1,114 @@
 /* Switch dia y noche */
 .form-switch-lg .form-check-input {
-    width: 3rem;
-    height: 1.5rem;
+  width: 3rem;
+  height: 1.5rem;
 }
 
 .form-switch-lg .form-check-input:checked {
-    background-color: #0d6efd;
+  background-color: #0d6efd;
 }
 
 .form-switch-lg .form-check-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
 .theme-icon-active {
-    fill: currentColor;
+  fill: currentColor;
 }
 
 .theme-dark .theme-icon-active {
-    color: white;
+  color: white;
 }
 
 /* Firma*/
 #miFirma {
-    font-family: "Alex Brush", cursive;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Alex Brush", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* General */
 body {
-    /* Nunito font <weight>: Use a value from 200 to 1000 */
-    font-family: "Nunito", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  /* Nunito font <weight>: Use a value from 200 to 1000 */
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Margen inferior del boton dia y noche */
 .custom-margin {
-    margin-bottom: 6rem;
+  margin-bottom: 6rem;
 }
 
 /* RGB */
 .glow::before,
 glow::after {
-    content: '';
-    position: absolute;
-    left: -5px;
-    top: -5px;
-    background: linear-gradient(45deg, #ff0000,
-            #ff7300,
-            #fffb00,
-            #48ff00,
-            #00ffd5,
-            #002bff,
-            #7a00ff,
-            #ff00c8,
-            #ff0000);
-    background-size: 400%;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    z-index: -1;
-    animation: animate 20s linear infinite;
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  background-size: 400%;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  z-index: -1;
+  animation: animate 20s linear infinite;
 }
 
 @keyframes animate {
-    0% {
-        background-position: 0 0;
-    }
+  0% {
+    background-position: 0 0;
+  }
 
-    50% {
-        background-position: 400% 0;
-    }
+  50% {
+    background-position: 400% 0;
+  }
 
-    100% {
-        background-position: 0 0;
-    }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 .glow::before {
-    filter: blur(20px);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+  filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .glow:hover::before {
-    opacity: 100;
+  opacity: 100;
+}
+
+/* Portada */
+.text-shadow-1 {
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
+.card-cover {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+/* Divisor */
+#fall-divider {
+  width: 100%;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+    inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
