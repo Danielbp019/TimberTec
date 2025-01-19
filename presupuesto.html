@@ -45,18 +45,18 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#hasta1000" role="tab">Hasta
-                        1000</a>
+                        $ 1000</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#entre1000y1500" role="tab">Entre 1000 y
+                    <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#entre1000y1500" role="tab">Entre $ 1000 y
                         1500</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="tab3" data-bs-toggle="tab" href="#entre1500y2000" role="tab">Entre 1500 y
+                    <a class="nav-link" id="tab3" data-bs-toggle="tab" href="#entre1500y2000" role="tab">Entre $ 1500 y
                         2000</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="tab4" data-bs-toggle="tab" href="#entre2000y3000" role="tab">Entre 2000 y
+                    <a class="nav-link" id="tab4" data-bs-toggle="tab" href="#entre2000y3000" role="tab">Entre $ 2000 y
                         3000</a>
                 </li>
                 <li class="nav-item" role="presentation">
@@ -67,14 +67,14 @@
 
             <!-- Contenido de los Tabs -->
             <div class="tab-content mt-3" id="myTabContent">
-                <div class="tab-pane fade show active" id="hasta1000" role="tabpanel">
 
+                <div class="tab-pane fade show active" id="hasta1000" role="tabpanel">
                     <!-- Card con input numérico y botón -->
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
                             <input type="number" class="form-control mb-2" id="dineroHasta1000"
-                                placeholder="Ingrese la cantidad de dinero" />
+                                placeholder="Ingrese la cantidad de dinero" max="1000" required/>
                             <button class="btn btn-primary" onclick="calcularHasta1000()">Calcular</button>
                             <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
                         </div>
@@ -132,15 +132,16 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="tab-pane fade" id="entre1000y1500" role="tabpanel">
 
+                <div class="tab-pane fade" id="entre1000y1500" role="tabpanel">
                     <!-- Card con input numérico y botón -->
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="entre1000y1500"
-                                placeholder="Ingrese la cantidad de dinero" />
-                            <button class="btn btn-primary" onclick="calcularentre1000y1500()">Calcular</button>
+                            <input type="number" class="form-control mb-2" id="dineroEntre1000y1500"
+                                placeholder="Ingrese la cantidad de dinero" min="1000" max="1500" required/>
+                            <button class="btn btn-primary" onclick="calcularEntre1000y1500()">Calcular</button>
+                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
                         </div>
                     </div>
 
@@ -196,15 +197,16 @@
                         </tbody>
                     </table>
                 </div>
+
                 <div class="tab-pane fade" id="entre1500y2000" role="tabpanel">
-
                     <!-- Card con input numérico y botón -->
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="dineroHasta1000"
-                                placeholder="Ingrese la cantidad de dinero" />
-                            <button class="btn btn-primary" onclick="calcularHasta1000()">Calcular</button>
+                            <input type="number" class="form-control mb-2" id="dineroEntre1500y2000"
+                                placeholder="Ingrese la cantidad de dinero" min="1500" max="2000" required/>
+                            <button class="btn btn-primary" onclick="calcularEntre1500y2000()">Calcular</button>
+                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
                         </div>
                     </div>
 
@@ -219,56 +221,57 @@
                         <tbody>
                             <tr>
                                 <td>Gráfica</td>
-                                <td>Ejemplo 1</td>
+                                <td>48 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>CPU</td>
-                                <td>Ejemplo 2</td>
+                                <td>14 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Placa Madre</td>
-                                <td>Ejemplo 3</td>
+                                <td>10 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Fuente</td>
-                                <td>Ejemplo 4</td>
+                                <td>7 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>SSD</td>
-                                <td>Ejemplo 5</td>
+                                <td>6 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>CAJA / Gabinete</td>
-                                <td>Ejemplo 6</td>
+                                <td>6 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>RAM</td>
-                                <td>Ejemplo 7</td>
+                                <td>6 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Disipador</td>
-                                <td>Ejemplo 8</td>
+                                <td>3 %</td>
                                 <td></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
                 <div class="tab-pane fade" id="entre2000y3000" role="tabpanel">
-
                     <!-- Card con input numérico y botón -->
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="dineroHasta1000"
-                                placeholder="Ingrese la cantidad de dinero" />
-                            <button class="btn btn-primary" onclick="calcularHasta1000()">Calcular</button>
+                            <input type="number" class="form-control mb-2" id="dineroEntre2000y3000"
+                                placeholder="Ingrese la cantidad de dinero" min="2000" max="3000" required/>
+                            <button class="btn btn-primary" onclick="calcularEntre2000y3000()">Calcular</button>
+                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
                         </div>
                     </div>
 
@@ -283,56 +286,57 @@
                         <tbody>
                             <tr>
                                 <td>Gráfica</td>
-                                <td>Ejemplo 1</td>
+                                <td>50 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>CPU</td>
-                                <td>Ejemplo 2</td>
+                                <td>13 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Placa Madre</td>
-                                <td>Ejemplo 3</td>
+                                <td>9 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Fuente</td>
-                                <td>Ejemplo 4</td>
+                                <td>7 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>SSD</td>
-                                <td>Ejemplo 5</td>
+                                <td>6 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>CAJA / Gabinete</td>
-                                <td>Ejemplo 6</td>
+                                <td>6 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>RAM</td>
-                                <td>Ejemplo 7</td>
+                                <td>6 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Disipador</td>
-                                <td>Ejemplo 8</td>
+                                <td>3 %</td>
                                 <td></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
                 <div class="tab-pane fade" id="csgofortnitevalorant" role="tabpanel">
-
                     <!-- Card con input numérico y botón -->
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="dineroHasta1000"
-                                placeholder="Ingrese la cantidad de dinero" />
-                            <button class="btn btn-primary" onclick="calcularHasta1000()">Calcular</button>
+                            <input type="number" class="form-control mb-2" id="dineroCsgofortnitevalorant"
+                                placeholder="Ingrese la cantidad de dinero" required/>
+                            <button class="btn btn-primary" onclick="calcularCsgofortnitevalorant()">Calcular</button>
+                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
                         </div>
                     </div>
 
@@ -347,49 +351,49 @@
                         <tbody>
                             <tr>
                                 <td>Gráfica</td>
-                                <td>Ejemplo 1</td>
+                                <td>33 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>CPU</td>
-                                <td>Ejemplo 2</td>
+                                <td>23 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Placa Madre</td>
-                                <td>Ejemplo 3</td>
+                                <td>12 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Fuente</td>
-                                <td>Ejemplo 4</td>
+                                <td>7 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>SSD</td>
-                                <td>Ejemplo 5</td>
+                                <td>6 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>CAJA / Gabinete</td>
-                                <td>Ejemplo 6</td>
+                                <td>6 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>RAM</td>
-                                <td>Ejemplo 7</td>
+                                <td>9 %</td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td>Disipador</td>
-                                <td>Ejemplo 8</td>
+                                <td>4 %</td>
                                 <td></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
 
+            </div>
         </section>
 
         <div id="fall-divider"></div>
