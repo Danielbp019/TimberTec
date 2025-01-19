@@ -8,4 +8,4 @@ Programa inspirado en la idea de @HeLion1ero. Con base a la cantidad de dinero d
 
 # Dirección web
 
-https://consumow.pages.dev/
+https://timbertec.pages.dev/
