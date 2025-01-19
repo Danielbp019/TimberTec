@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-bs-theme="auto">
 
 <head>
     <meta charset="UTF-8">
@@ -73,14 +73,20 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="dineroHasta1000"
-                                placeholder="Ingrese la cantidad de dinero" max="1000" required/>
-                            <button class="btn btn-primary" onclick="calcularHasta1000()">Calcular</button>
-                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
+                            <form id="formHasta1000" class="needs-validation" novalidate>
+                                <input type="number" class="form-control mb-2" id="dineroHasta1000"
+                                    placeholder="Ingrese la cantidad de dinero" max="1000" required />
+                                <div class="invalid-feedback">
+                                    Por favor, ingresa una cantidad válida de dinero.
+                                </div>
+                                <button class="btn btn-primary" type="button"
+                                    onclick="validarYCalcularHasta1000()">Calcular</button>
+                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                            </form>
                         </div>
                     </div>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Componente</th>
@@ -138,14 +144,19 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="dineroEntre1000y1500"
-                                placeholder="Ingrese la cantidad de dinero" min="1000" max="1500" required/>
-                            <button class="btn btn-primary" onclick="calcularEntre1000y1500()">Calcular</button>
-                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
+                            <form id="formEntre1000y1500" class="needs-validation" novalidate>
+                                <input type="number" class="form-control mb-2" id="dineroEntre1000y1500"
+                                    placeholder="Ingrese la cantidad de dinero" min="1000" max="1500" required />
+                                <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1000 y 1500.
+                                </div>
+                                <button class="btn btn-primary" type="button"
+                                    onclick="validarYCalcularEntre1000y1500()">Calcular</button>
+                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                            </form>
                         </div>
                     </div>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Componente</th>
@@ -203,14 +214,19 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="dineroEntre1500y2000"
-                                placeholder="Ingrese la cantidad de dinero" min="1500" max="2000" required/>
-                            <button class="btn btn-primary" onclick="calcularEntre1500y2000()">Calcular</button>
-                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
+                            <form id="formEntre1500y2000" class="needs-validation" novalidate>
+                                <input type="number" class="form-control mb-2" id="dineroEntre1500y2000"
+                                    placeholder="Ingrese la cantidad de dinero" min="1500" max="2000" required />
+                                <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1500 y 2000.
+                                </div>
+                                <button class="btn btn-primary" type="button"
+                                    onclick="validarYCalcularEntre1500y2000()">Calcular</button>
+                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                            </form>
                         </div>
                     </div>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Componente</th>
@@ -268,14 +284,19 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="dineroEntre2000y3000"
-                                placeholder="Ingrese la cantidad de dinero" min="2000" max="3000" required/>
-                            <button class="btn btn-primary" onclick="calcularEntre2000y3000()">Calcular</button>
-                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
+                            <form id="formEntre2000y3000" class="needs-validation" novalidate>
+                                <input type="number" class="form-control mb-2" id="dineroEntre2000y3000"
+                                    placeholder="Ingrese la cantidad de dinero" min="2000" max="3000" required />
+                                <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 2000 y 3000.
+                                </div>
+                                <button class="btn btn-primary" type="button"
+                                    onclick="validarYCalcularEntre2000y3000()">Calcular</button>
+                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                            </form>
                         </div>
                     </div>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Componente</th>
@@ -333,14 +354,18 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <h5 class="card-title">Dinero a gastar</h5>
-                            <input type="number" class="form-control mb-2" id="dineroCsgofortnitevalorant"
-                                placeholder="Ingrese la cantidad de dinero" required/>
-                            <button class="btn btn-primary" onclick="calcularCsgofortnitevalorant()">Calcular</button>
-                            <button class="btn btn-secondary" onclick="limpiar()">Limpiar</button>
+                            <form id="formCsgofortnitevalorant" class="needs-validation" novalidate>
+                                <input type="number" class="form-control mb-2" id="dineroCsgofortnitevalorant"
+                                    placeholder="Ingrese la cantidad de dinero" required />
+                                <div class="invalid-feedback">Por favor, ingresa una cantidad válida de dinero.</div>
+                                <button class="btn btn-primary" type="button"
+                                    onclick="validarYCalcularCsgofortnitevalorant()">Calcular</button>
+                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                            </form>
                         </div>
                     </div>
 
-                    <table class="table table-bordered">
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Componente</th>
