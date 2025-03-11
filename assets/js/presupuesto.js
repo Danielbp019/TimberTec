@@ -14,9 +14,7 @@ function calcularPresupuesto(idInput, idTabla, porcentajes) {
   // Iterar sobre cada componente y calcular el gasto
   porcentajes.forEach((porcentaje, index) => {
     const gasto = Math.round((dinero * porcentaje) / 100);
-    const resultadoCelda = document.querySelectorAll(`#${idTabla} tbody tr`)[
-      index
-    ].cells[2];
+    const resultadoCelda = document.querySelectorAll(`#${idTabla} tbody tr`)[index].cells[2];
     resultadoCelda.textContent = "$" + gasto;
   });
 }
@@ -31,11 +29,7 @@ function validarYCalcularHasta1000() {
   }
 
   form.classList.add("was-validated");
-  calcularPresupuesto(
-    "dineroHasta1000",
-    "hasta1000",
-    [45, 14, 13, 8, 6, 6, 5, 3]
-  );
+  calcularPresupuesto("dineroHasta1000", "hasta1000", [45, 14, 13, 8, 6, 6, 5, 3]);
 }
 
 // Función para validar y calcular "Entre 1000 y 1500"
@@ -48,11 +42,7 @@ function validarYCalcularEntre1000y1500() {
   }
 
   form.classList.add("was-validated");
-  calcularPresupuesto(
-    "dineroEntre1000y1500",
-    "entre1000y1500",
-    [46, 14, 11, 7, 6, 6, 7, 3]
-  );
+  calcularPresupuesto("dineroEntre1000y1500", "entre1000y1500", [46, 14, 11, 7, 6, 6, 7, 3]);
 }
 
 // Función para validar y calcular "Entre 1500 y 2000"
@@ -65,11 +55,7 @@ function validarYCalcularEntre1500y2000() {
   }
 
   form.classList.add("was-validated");
-  calcularPresupuesto(
-    "dineroEntre1500y2000",
-    "entre1500y2000",
-    [48, 14, 10, 7, 6, 6, 6, 3]
-  );
+  calcularPresupuesto("dineroEntre1500y2000", "entre1500y2000", [48, 14, 10, 7, 6, 6, 6, 3]);
 }
 
 // Función para validar y calcular "Entre 2000 y 3000"
@@ -82,11 +68,7 @@ function validarYCalcularEntre2000y3000() {
   }
 
   form.classList.add("was-validated");
-  calcularPresupuesto(
-    "dineroEntre2000y3000",
-    "entre2000y3000",
-    [50, 13, 9, 7, 6, 6, 6, 3]
-  );
+  calcularPresupuesto("dineroEntre2000y3000", "entre2000y3000", [50, 13, 9, 7, 6, 6, 6, 3]);
 }
 
 // Función para validar y calcular "CSGO/Fortnite/Valorant"
@@ -99,11 +81,7 @@ function validarYCalcularCsgofortnitevalorant() {
   }
 
   form.classList.add("was-validated");
-  calcularPresupuesto(
-    "dineroCsgofortnitevalorant",
-    "csgofortnitevalorant",
-    [33, 23, 12, 7, 6, 6, 9, 4]
-  );
+  calcularPresupuesto("dineroCsgofortnitevalorant", "csgofortnitevalorant", [33, 23, 12, 7, 6, 6, 9, 4]);
 }
 
 // Función para limpiar las entradas y las tablas
@@ -115,13 +93,7 @@ function limpiar() {
     "dineroEntre2000y3000",
     "dineroCsgofortnitevalorant",
   ];
-  const tablas = [
-    "hasta1000",
-    "entre1000y1500",
-    "entre1500y2000",
-    "entre2000y3000",
-    "csgofortnitevalorant",
-  ];
+  const tablas = ["hasta1000", "entre1000y1500", "entre1500y2000", "entre2000y3000", "csgofortnitevalorant"];
 
   // Limpiar los campos de entrada
   inputs.forEach((idInput) => {

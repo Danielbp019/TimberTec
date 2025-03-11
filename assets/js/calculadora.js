@@ -48,9 +48,7 @@ function calcularGasto() {
 
   // Obtener los valores de los campos
   const alias = document.getElementById("alias").value;
-  const costeEnergia = parseFloat(
-    document.getElementById("costeEnergia").value
-  );
+  const costeEnergia = parseFloat(document.getElementById("costeEnergia").value);
   const consumo = parseFloat(document.getElementById("consumo").value);
   const usoDiario = parseFloat(document.getElementById("usoDiario").value);
   const moneda = document.getElementById("moneda").value;
@@ -75,12 +73,8 @@ function calcularGasto() {
   }
 
   // Formatear el gasto anual y mensual usando el formato de moneda seleccionado
-  const gastoAnualFormateado = `${simboloMoneda} ${gastoAnual.toLocaleString(
-    ...formatoMoneda
-  )}`;
-  const gastoMensualFormateado = `${simboloMoneda} ${gastoMensual.toLocaleString(
-    ...formatoMoneda
-  )}`;
+  const gastoAnualFormateado = `${simboloMoneda} ${gastoAnual.toLocaleString(...formatoMoneda)}`;
+  const gastoMensualFormateado = `${simboloMoneda} ${gastoMensual.toLocaleString(...formatoMoneda)}`;
 
   const calculo = {
     // Se guardan los valores
@@ -103,9 +97,7 @@ function calcularGasto() {
 
 // Actualizar la tabla del historial
 function actualizarTabla() {
-  const tbody = document
-    .getElementById("tablaCalculos")
-    .getElementsByTagName("tbody")[0];
+  const tbody = document.getElementById("tablaCalculos").getElementsByTagName("tbody")[0];
   tbody.innerHTML = "";
 
   calculos.forEach((calculo) => {
