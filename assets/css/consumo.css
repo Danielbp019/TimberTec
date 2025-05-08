@@ -16,10 +16,11 @@
 
 /* General */
 body {
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Nunito", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+  font-variation-settings: "wdth" 100 !important;
 }
 
 /* Margen inferior del boton dia y noche */
@@ -97,6 +98,14 @@ glow::after {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 380px; /* Ajusta según el alto necesario del card */
+}
+
+.card-cover > .d-flex {
+  flex-grow: 1;
 }
 
 /* Divisor */
