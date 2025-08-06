@@ -19,23 +19,12 @@
             })
             .then(data => document.head.innerHTML += data)
             .catch(error => console.error('Error al cargar el header:', error));
-
-        // Cargar Footer
-        fetch('footer.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error ${response.status}: No se pudo cargar el footer`);
-                }
-                return response.text();
-            })
-            .then(data => document.getElementById('footer').innerHTML = data)
-            .catch(error => console.error('Error al cargar el footer:', error));
     </script>
 
     <!-- Scripts de Bootstrap y personalizados -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"
-        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
     <script defer src="assets/js/scripts.js"></script>
     <script defer src="assets/js/calculadora.js"></script>
 </head>
@@ -148,7 +137,44 @@
 
         <div id="fall-divider"></div>
         <!-- Footer -->
-        <div id="footer"></div>
+        <footer class="container py-4 mt-3">
+            <div class="row align-items-center text-center text-md-start">
+                <!-- Firma a la izquierda -->
+                <div
+                    class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
+                    <span class="text-body-secondary">© 2024-2025,</span>
+                    <span id="miFirma" class="ms-2" style="font-size: 26px;">Daniel Bautista Pradilla.</span>
+                </div>
+
+                <!-- Botón en el centro, siempre centrado -->
+                <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
+                    <a href="index.html" class="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
+                        aria-label="Menú de aplicación">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-house" viewBox="0 0 16 16">
+                            <path
+                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
+                        </svg>
+                        Menú de aplicación
+                    </a>
+                </div>
+
+                <!-- Enlaces a la derecha -->
+                <div class="col-md-4 d-flex justify-content-center justify-content-md-end gap-3">
+                    <a class="text-body-secondary" href="https://github.com/Danielbp019/" target="_blank"
+                        aria-label="Perfil de GitHub">
+                        <i class="bi bi-github" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a class="text-body-secondary" href="https://getbootstrap.com/" target="_blank"
+                        aria-label="Sitio oficial de Bootstrap">
+                        <i class="bi bi-bootstrap-fill" style="font-size: 1.5rem;"></i>
+                    </a>
+                    <a class="text-body-secondary" href="#" aria-label="Ir arriba">
+                        <i class="bi bi-arrow-up-circle-fill" style="font-size: 1.5rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
 
         <!-- Cambio dia y noche iconos svg -->
         <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
