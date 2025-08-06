@@ -99,9 +99,16 @@
                 <!-- Firma a la izquierda -->
                 <div
                     class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
-                    <span class="text-body-secondary">© 2024-2025,</span>
+                    <span class="text-body-secondary">© 2024 - <span id="anioActual"></span>,</span>
                     <span id="miFirma" class="ms-2" style="font-size: 26px;">Daniel Bautista Pradilla.</span>
                 </div>
+                <script>
+                    // Al cargar la página, se inserta el año actual
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const anio = new Date().getFullYear();
+                        document.getElementById("anioActual").textContent = anio;
+                    });
+                </script>
 
                 <!-- Botón en el centro, siempre centrado -->
                 <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
