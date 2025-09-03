@@ -1,529 +1,567 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es" data-bs-theme="auto">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Daniel Bautista Pradilla">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Daniel Bautista Pradilla" />
     <title>Calculadora de presupuesto para PC</title>
-    <link rel="icon" href="assets/img/elec32x32.png">
+    <link rel="icon" href="assets/img/elec32x32.png" />
 
-    <script defer>
-        // Cargar Header
-        fetch('header.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error ${response.status}: No se pudo cargar el header`);
-                }
-                return response.text();
-            })
-            .then(data => document.head.innerHTML += data)
-            .catch(error => console.error('Error al cargar el header:', error));
-    </script>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="assets/css/consumo.css" />
 
     <!-- Scripts de Bootstrap y personalizados -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="assets/js/scripts.js"></script>
     <script defer src="assets/js/presupuesto.js"></script>
     <script type="module">
-        import 'https://cdn.jsdelivr.net/npm/lite-youtube-embed/src/lite-yt-embed.js';
+      import "https://cdn.jsdelivr.net/npm/lite-youtube-embed/src/lite-yt-embed.js";
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <main class="justify-content-center pt-2">
-        <header class="text-center mb-4">
-            <h1 class="fw-bold display-4">Calculadora de presupuesto para PC</h1>
-        </header>
+      <header class="text-center mb-4">
+        <h1 class="fw-bold display-4">Calculadora de presupuesto para PC</h1>
+      </header>
 
-        <section class="container px-5">
-            <!-- Tabs de navegación -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#hasta1000" role="tab">Hasta
-                        $ 1000</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#entre1000y1500" role="tab">Entre $ 1000 y
-                        1500</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="tab3" data-bs-toggle="tab" href="#entre1500y2000" role="tab">Entre $ 1500 y
-                        2000</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="tab4" data-bs-toggle="tab" href="#entre2000y3000" role="tab">Entre $ 2000 y
-                        3000</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="tab5" data-bs-toggle="tab" href="#csgofortnitevalorant" role="tab">Para
-                        CSGO, Fortnite y Valorant</a>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="tab6" data-bs-toggle="tab" href="#creditos" role="tab">Creditos y
-                        explicación</a>
-                </li>
-            </ul>
+      <section class="container px-5">
+        <!-- Tabs de navegación -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="tab1" data-bs-toggle="tab" href="#hasta1000" role="tab">Hasta $ 1000</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="tab2" data-bs-toggle="tab" href="#entre1000y1500" role="tab">Entre $ 1000 y 1500</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="tab3" data-bs-toggle="tab" href="#entre1500y2000" role="tab">Entre $ 1500 y 2000</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="tab4" data-bs-toggle="tab" href="#entre2000y3000" role="tab">Entre $ 2000 y 3000</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="tab5" data-bs-toggle="tab" href="#csgofortnitevalorant" role="tab"
+              >Para CSGO, Fortnite y Valorant</a
+            >
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="tab6" data-bs-toggle="tab" href="#creditos" role="tab">Creditos y explicación</a>
+          </li>
+        </ul>
 
-            <!-- Contenido de los Tabs -->
-            <div class="tab-content mt-3" id="myTabContent">
-
-                <div class="tab-pane fade show active" id="hasta1000" role="tabpanel">
-                    <!-- Card con input numérico y botón -->
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Dinero a gastar</h5>
-                            <form id="formHasta1000" class="needs-validation" novalidate>
-                                <input type="number" class="form-control mb-2" id="dineroHasta1000"
-                                    placeholder="Ingrese la cantidad de dinero" max="1000" required />
-                                <div class="invalid-feedback">
-                                    Por favor, ingresa una cantidad válida de dinero.
-                                </div>
-                                <button class="btn btn-primary" type="button"
-                                    onclick="validarYCalcularHasta1000()">Calcular</button>
-                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Componente</th>
-                                <th>Cuanto gastar</th>
-                                <th>Resultado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Gráfica</td>
-                                <td>45 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CPU</td>
-                                <td>14 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Placa Madre</td>
-                                <td>13 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Fuente</td>
-                                <td>8 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>SSD</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CAJA / Gabinete</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>RAM</td>
-                                <td>5 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Disipador</td>
-                                <td>3 %</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="tab-pane fade" id="entre1000y1500" role="tabpanel">
-                    <!-- Card con input numérico y botón -->
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Dinero a gastar</h5>
-                            <form id="formEntre1000y1500" class="needs-validation" novalidate>
-                                <input type="number" class="form-control mb-2" id="dineroEntre1000y1500"
-                                    placeholder="Ingrese la cantidad de dinero" min="1000" max="1500" required />
-                                <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1000 y 1500.
-                                </div>
-                                <button class="btn btn-primary" type="button"
-                                    onclick="validarYCalcularEntre1000y1500()">Calcular</button>
-                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Componente</th>
-                                <th>Cuanto gastar</th>
-                                <th>Resultado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Gráfica</td>
-                                <td>46 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CPU</td>
-                                <td>14 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Placa Madre</td>
-                                <td>11 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Fuente</td>
-                                <td>7 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>SSD</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CAJA / Gabinete</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>RAM</td>
-                                <td>7 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Disipador</td>
-                                <td>3 %</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="tab-pane fade" id="entre1500y2000" role="tabpanel">
-                    <!-- Card con input numérico y botón -->
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Dinero a gastar</h5>
-                            <form id="formEntre1500y2000" class="needs-validation" novalidate>
-                                <input type="number" class="form-control mb-2" id="dineroEntre1500y2000"
-                                    placeholder="Ingrese la cantidad de dinero" min="1500" max="2000" required />
-                                <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1500 y 2000.
-                                </div>
-                                <button class="btn btn-primary" type="button"
-                                    onclick="validarYCalcularEntre1500y2000()">Calcular</button>
-                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Componente</th>
-                                <th>Cuanto gastar</th>
-                                <th>Resultado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Gráfica</td>
-                                <td>48 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CPU</td>
-                                <td>14 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Placa Madre</td>
-                                <td>10 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Fuente</td>
-                                <td>7 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>SSD</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CAJA / Gabinete</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>RAM</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Disipador</td>
-                                <td>3 %</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="tab-pane fade" id="entre2000y3000" role="tabpanel">
-                    <!-- Card con input numérico y botón -->
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Dinero a gastar</h5>
-                            <form id="formEntre2000y3000" class="needs-validation" novalidate>
-                                <input type="number" class="form-control mb-2" id="dineroEntre2000y3000"
-                                    placeholder="Ingrese la cantidad de dinero" min="2000" max="3000" required />
-                                <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 2000 y 3000.
-                                </div>
-                                <button class="btn btn-primary" type="button"
-                                    onclick="validarYCalcularEntre2000y3000()">Calcular</button>
-                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Componente</th>
-                                <th>Cuanto gastar</th>
-                                <th>Resultado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Gráfica</td>
-                                <td>50 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CPU</td>
-                                <td>13 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Placa Madre</td>
-                                <td>9 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Fuente</td>
-                                <td>7 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>SSD</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CAJA / Gabinete</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>RAM</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Disipador</td>
-                                <td>3 %</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="tab-pane fade" id="csgofortnitevalorant" role="tabpanel">
-                    <!-- Card con input numérico y botón -->
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <h5 class="card-title">Dinero a gastar</h5>
-                            <form id="formCsgofortnitevalorant" class="needs-validation" novalidate>
-                                <input type="number" class="form-control mb-2" id="dineroCsgofortnitevalorant"
-                                    placeholder="Ingrese la cantidad de dinero" required />
-                                <div class="invalid-feedback">Por favor, ingresa una cantidad válida de dinero.</div>
-                                <button class="btn btn-primary" type="button"
-                                    onclick="validarYCalcularCsgofortnitevalorant()">Calcular</button>
-                                <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Componente</th>
-                                <th>Cuanto gastar</th>
-                                <th>Resultado</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Gráfica</td>
-                                <td>33 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CPU</td>
-                                <td>23 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Placa Madre</td>
-                                <td>12 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Fuente</td>
-                                <td>7 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>SSD</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>CAJA / Gabinete</td>
-                                <td>6 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>RAM</td>
-                                <td>9 %</td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Disipador</td>
-                                <td>4 %</td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="tab-pane fade" id="creditos" role="tabpanel">
-                    <!-- Card con creditos -->
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <p class="card-text">
-                                ¡Hola @HeLion1ero!<br><br>
-                                Quería tomarme un momento para agradecerte por el increíble video que creaste sobre
-                                la distribución del presupuesto para la construcción de PC por piezas.
-                            </p>
-                            <p class="card-text">
-                                El programa opera de la misma forma que el documento que mostraste. Sin tu video,
-                                este proyecto no habría sido posible.
-                            </p>
-                            <p class="card-text">
-                                Gracias por tu dedicación y esfuerzo. Estoy seguro de que tu comunidad apreciará
-                                tanto tu trabajo como yo.
-                            </p>
-                            <lite-youtube videoid="Bsw-cmeGmxw"></lite-youtube>
-                            <br>
-                            <p class="card-text">
-                                ¡Un abrazo y sigue creando contenido increíble!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+        <!-- Contenido de los Tabs -->
+        <div class="tab-content mt-3" id="myTabContent">
+          <div class="tab-pane fade show active" id="hasta1000" role="tabpanel">
+            <!-- Card con input numérico y botón -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Dinero a gastar</h5>
+                <form id="formHasta1000" class="needs-validation" novalidate>
+                  <input
+                    type="number"
+                    class="form-control mb-2"
+                    id="dineroHasta1000"
+                    placeholder="Ingrese la cantidad de dinero"
+                    max="1000"
+                    required
+                  />
+                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida de dinero.</div>
+                  <button class="btn btn-primary" type="button" onclick="validarYCalcularHasta1000()">Calcular</button>
+                  <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                </form>
+              </div>
             </div>
-        </section>
 
-        <div id="fall-divider"></div>
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Componente</th>
+                  <th>Cuanto gastar</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gráfica</td>
+                  <td>45 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CPU</td>
+                  <td>14 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Placa Madre</td>
+                  <td>13 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Fuente</td>
+                  <td>8 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>SSD</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CAJA / Gabinete</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>RAM</td>
+                  <td>5 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Disipador</td>
+                  <td>3 %</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-        <!-- Footer -->
-        <footer class="container py-4 mt-3">
-            <div class="row align-items-center text-center text-md-start">
-                <!-- Firma a la izquierda -->
-                <div
-                    class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
-                    <span class="text-body-secondary">© 2024 - <span id="anioActual"></span>,</span>
-                    <span id="miFirma" class="ms-2" style="font-size: 26px;">Daniel Bautista Pradilla.</span>
-                </div>
-                <script>
-                    // Al cargar la página, se inserta el año actual
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const anio = new Date().getFullYear();
-                        document.getElementById("anioActual").textContent = anio;
-                    });
-                </script>
-
-                <!-- Botón en el centro, siempre centrado -->
-                <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
-                    <a href="index.html" class="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
-                        aria-label="Menú de aplicación">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-house" viewBox="0 0 16 16">
-                            <path
-                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
-                        </svg>
-                        Menú de aplicación
-                    </a>
-                </div>
-
-                <!-- Enlaces a la derecha -->
-                <div class="col-md-4 d-flex justify-content-center justify-content-md-end gap-3">
-                    <a class="text-body-secondary" href="https://github.com/Danielbp019/" target="_blank"
-                        aria-label="Perfil de GitHub">
-                        <i class="bi bi-github" style="font-size: 1.5rem;"></i>
-                    </a>
-                    <a class="text-body-secondary" href="https://getbootstrap.com/" target="_blank"
-                        aria-label="Sitio oficial de Bootstrap">
-                        <i class="bi bi-bootstrap-fill" style="font-size: 1.5rem;"></i>
-                    </a>
-                    <a class="text-body-secondary" href="#" aria-label="Ir arriba">
-                        <i class="bi bi-arrow-up-circle-fill" style="font-size: 1.5rem;"></i>
-                    </a>
-                </div>
+          <div class="tab-pane fade" id="entre1000y1500" role="tabpanel">
+            <!-- Card con input numérico y botón -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Dinero a gastar</h5>
+                <form id="formEntre1000y1500" class="needs-validation" novalidate>
+                  <input
+                    type="number"
+                    class="form-control mb-2"
+                    id="dineroEntre1000y1500"
+                    placeholder="Ingrese la cantidad de dinero"
+                    min="1000"
+                    max="1500"
+                    required
+                  />
+                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1000 y 1500.</div>
+                  <button class="btn btn-primary" type="button" onclick="validarYCalcularEntre1000y1500()">
+                    Calcular
+                  </button>
+                  <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                </form>
+              </div>
             </div>
-        </footer>
 
-        <!-- Cambio dia y noche iconos svg -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-            <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-                <path
-                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
-            </symbol>
-            <symbol id="sun-fill" viewBox="0 0 16 16">
-                <path
-                    d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-            </symbol>
-        </svg>
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Componente</th>
+                  <th>Cuanto gastar</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gráfica</td>
+                  <td>46 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CPU</td>
+                  <td>14 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Placa Madre</td>
+                  <td>11 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Fuente</td>
+                  <td>7 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>SSD</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CAJA / Gabinete</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>RAM</td>
+                  <td>7 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Disipador</td>
+                  <td>3 %</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-        <!-- Cambio dia y noche switch -->
-        <div class="position-fixed bottom-0 end-0 custom-margin me-3 bd-mode-toggle">
-            <div class="form-check form-switch form-switch-lg">
-                <input class="form-check-input glow" type="checkbox" id="themeSwitch" aria-label="Toggle theme">
-                <label class="form-check-label d-flex align-items-center" for="themeSwitch">
-                    <svg class="bi my-1 theme-icon-active ms-2" width="1.5em" height="1.5em">
-                        <use href="#"></use>
-                    </svg>
-                </label>
+          <div class="tab-pane fade" id="entre1500y2000" role="tabpanel">
+            <!-- Card con input numérico y botón -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Dinero a gastar</h5>
+                <form id="formEntre1500y2000" class="needs-validation" novalidate>
+                  <input
+                    type="number"
+                    class="form-control mb-2"
+                    id="dineroEntre1500y2000"
+                    placeholder="Ingrese la cantidad de dinero"
+                    min="1500"
+                    max="2000"
+                    required
+                  />
+                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1500 y 2000.</div>
+                  <button class="btn btn-primary" type="button" onclick="validarYCalcularEntre1500y2000()">
+                    Calcular
+                  </button>
+                  <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                </form>
+              </div>
             </div>
+
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Componente</th>
+                  <th>Cuanto gastar</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gráfica</td>
+                  <td>48 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CPU</td>
+                  <td>14 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Placa Madre</td>
+                  <td>10 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Fuente</td>
+                  <td>7 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>SSD</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CAJA / Gabinete</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>RAM</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Disipador</td>
+                  <td>3 %</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tab-pane fade" id="entre2000y3000" role="tabpanel">
+            <!-- Card con input numérico y botón -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Dinero a gastar</h5>
+                <form id="formEntre2000y3000" class="needs-validation" novalidate>
+                  <input
+                    type="number"
+                    class="form-control mb-2"
+                    id="dineroEntre2000y3000"
+                    placeholder="Ingrese la cantidad de dinero"
+                    min="2000"
+                    max="3000"
+                    required
+                  />
+                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 2000 y 3000.</div>
+                  <button class="btn btn-primary" type="button" onclick="validarYCalcularEntre2000y3000()">
+                    Calcular
+                  </button>
+                  <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                </form>
+              </div>
+            </div>
+
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Componente</th>
+                  <th>Cuanto gastar</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gráfica</td>
+                  <td>50 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CPU</td>
+                  <td>13 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Placa Madre</td>
+                  <td>9 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Fuente</td>
+                  <td>7 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>SSD</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CAJA / Gabinete</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>RAM</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Disipador</td>
+                  <td>3 %</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tab-pane fade" id="csgofortnitevalorant" role="tabpanel">
+            <!-- Card con input numérico y botón -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Dinero a gastar</h5>
+                <form id="formCsgofortnitevalorant" class="needs-validation" novalidate>
+                  <input
+                    type="number"
+                    class="form-control mb-2"
+                    id="dineroCsgofortnitevalorant"
+                    placeholder="Ingrese la cantidad de dinero"
+                    required
+                  />
+                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida de dinero.</div>
+                  <button class="btn btn-primary" type="button" onclick="validarYCalcularCsgofortnitevalorant()">
+                    Calcular
+                  </button>
+                  <button class="btn btn-secondary" type="button" onclick="limpiar()">Limpiar</button>
+                </form>
+              </div>
+            </div>
+
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th>Componente</th>
+                  <th>Cuanto gastar</th>
+                  <th>Resultado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Gráfica</td>
+                  <td>33 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CPU</td>
+                  <td>23 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Placa Madre</td>
+                  <td>12 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Fuente</td>
+                  <td>7 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>SSD</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>CAJA / Gabinete</td>
+                  <td>6 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>RAM</td>
+                  <td>9 %</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Disipador</td>
+                  <td>4 %</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="tab-pane fade" id="creditos" role="tabpanel">
+            <!-- Card con creditos -->
+            <div class="card mb-3">
+              <div class="card-body">
+                <p class="card-text">
+                  ¡Hola @HeLion1ero!<br /><br />
+                  Quería tomarme un momento para agradecerte por el increíble video que creaste sobre la distribución
+                  del presupuesto para la construcción de PC por piezas.
+                </p>
+                <p class="card-text">
+                  El programa opera de la misma forma que el documento que mostraste. Sin tu video, este proyecto no
+                  habría sido posible.
+                </p>
+                <p class="card-text">
+                  Gracias por tu dedicación y esfuerzo. Estoy seguro de que tu comunidad apreciará tanto tu trabajo como
+                  yo.
+                </p>
+                <lite-youtube videoid="Bsw-cmeGmxw"></lite-youtube>
+                <br />
+                <p class="card-text">¡Un abrazo y sigue creando contenido increíble!</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
 
+      <div id="fall-divider"></div>
+
+      <!-- Footer -->
+      <footer class="container py-4 mt-3">
+        <div class="row align-items-center text-center text-md-start">
+          <!-- Firma a la izquierda -->
+          <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
+            <span class="text-body-secondary">© 2024 - <span id="anioActual"></span>,</span>
+            <span id="miFirma" class="ms-2" style="font-size: 26px">Daniel Bautista Pradilla.</span>
+          </div>
+          <script>
+            // Al cargar la página, se inserta el año actual
+            document.addEventListener("DOMContentLoaded", function () {
+              const anio = new Date().getFullYear();
+              document.getElementById("anioActual").textContent = anio;
+            });
+          </script>
+
+          <!-- Botón en el centro, siempre centrado -->
+          <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
+            <a
+              href="index.html"
+              class="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
+              aria-label="Menú de aplicación"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-house"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"
+                />
+              </svg>
+              Menú de aplicación
+            </a>
+          </div>
+
+          <!-- Enlaces a la derecha -->
+          <div class="col-md-4 d-flex justify-content-center justify-content-md-end gap-3">
+            <a
+              class="text-body-secondary"
+              href="https://github.com/Danielbp019/"
+              target="_blank"
+              aria-label="Perfil de GitHub"
+            >
+              <i class="bi bi-github" style="font-size: 1.5rem"></i>
+            </a>
+            <a
+              class="text-body-secondary"
+              href="https://getbootstrap.com/"
+              target="_blank"
+              aria-label="Sitio oficial de Bootstrap"
+            >
+              <i class="bi bi-bootstrap-fill" style="font-size: 1.5rem"></i>
+            </a>
+            <a class="text-body-secondary" href="#" aria-label="Ir arriba">
+              <i class="bi bi-arrow-up-circle-fill" style="font-size: 1.5rem"></i>
+            </a>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Cambio dia y noche iconos svg -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+          <path
+            d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+          />
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+          <path
+            d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+          />
+        </symbol>
+      </svg>
+
+      <!-- Cambio dia y noche switch -->
+      <div class="position-fixed bottom-0 end-0 custom-margin me-3 bd-mode-toggle">
+        <div class="form-check form-switch form-switch-lg">
+          <input class="form-check-input glow" type="checkbox" id="themeSwitch" aria-label="Toggle theme" />
+          <label class="form-check-label d-flex align-items-center" for="themeSwitch">
+            <svg class="bi my-1 theme-icon-active ms-2" width="1.5em" height="1.5em">
+              <use href="#"></use>
+            </svg>
+          </label>
+        </div>
+      </div>
     </main>
-
-</body>
-
+  </body>
 </html>

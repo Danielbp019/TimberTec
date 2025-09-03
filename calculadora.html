@@ -1,214 +1,268 @@
 <!DOCTYPE html>
 <html lang="es" data-bs-theme="auto">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Daniel Bautista Pradilla">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Daniel Bautista Pradilla" />
     <title>Calculadora de Consumo Eléctrico</title>
-    <link rel="icon" href="assets/img/elec32x32.png">
+    <link rel="icon" href="assets/img/elec32x32.png" />
 
-    <script defer>
-        // Cargar Header
-        fetch('header.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Error ${response.status}: No se pudo cargar el header`);
-                }
-                return response.text();
-            })
-            .then(data => document.head.innerHTML += data)
-            .catch(error => console.error('Error al cargar el header:', error));
-    </script>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="assets/css/consumo.css" />
 
     <!-- Scripts de Bootstrap y personalizados -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
     <script defer src="assets/js/scripts.js"></script>
     <script defer src="assets/js/calculadora.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <main class="justify-content-center pt-2">
-        <header class="text-center mb-4">
-            <h1 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h1>
-        </header>
+      <header class="text-center mb-4">
+        <h1 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h1>
+      </header>
 
-        <section class="container-fluid row">
-            <article class="col-md-3 mb-3 py-3">
-                <!-- Esto pone efecto de vidrio en la card para cuando hay un fondo
+      <section class="container-fluid row">
+        <article class="col-md-3 mb-3 py-3">
+          <!-- Esto pone efecto de vidrio en la card para cuando hay un fondo
                 <div class="card bg-transparent" style="backdrop-filter: blur(20px);"> -->
-                <div class="card">
-                    <div class="card-body">
-                        <fieldset>
-                            <legend>Datos</legend>
-                            <form id="form" class="needs-validation" novalidate>
-                                <div class="mb-3">
-                                    <label for="alias" class="form-label">Alias (*) <i class="bi bi-info-circle-fill"
-                                            data-bs-toggle="tooltip" data-bs-placement="right"
-                                            data-bs-title="Sobrenombre al cálculo que realizarás"></i> :</label>
-                                    <input type="text" id="alias" name="alias" class="form-control" required>
-                                    <div class="invalid-feedback">
-                                        El campo Alias es requerido.
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="costeEnergia" class="form-label">Costo de Energía (kWh) (*) <i
-                                            class="bi bi-info-circle-fill" data-bs-toggle="tooltip"
-                                            data-bs-placement="right"
-                                            data-bs-title="Está en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio"></i>
-                                        :</label>
-                                    <input type="number" step="0.1" pattern="\d+(\.\d{1,})?" id="costeEnergia"
-                                        name="costeEnergia" class="form-control" min="1" required>
-                                    <div class="invalid-feedback">
-                                        El campo Costo de Energía es requerido.
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="consumo" class="form-label">Consumo (W) (*) <i
-                                            class="bi bi-info-circle-fill" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" data-bs-title="Consumo del aparato a medir"></i>
-                                        :</label>
-                                    <input type="number" step="0.1" pattern="\d+(\.\d{1,})?" id="consumo" name="consumo"
-                                        class="form-control" min="1" required>
-                                    <div class="invalid-feedback">
-                                        El campo Consumo es requerido.
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="usoDiario" class="form-label">Uso Diario (Seleccione las horas)
-                                        (*) <i class="bi bi-info-circle-fill" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" data-bs-title="Horas de uso diario"></i> :</label>
-                                    <select id="usoDiario" name="usoDiario" class="form-control" required>
-                                        <!-- Las opciones se generarán dinámicamente con JavaScript -->
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        El campo Uso Diario es requerido.
-                                    </div>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="moneda" class="form-label">Moneda (Seleccione el formato)
-                                        (*) <i class="bi bi-info-circle-fill" data-bs-toggle="tooltip"
-                                            data-bs-placement="right"
-                                            data-bs-title="Tipo de moneda para realizar el cálculo"></i> :</label>
-                                    <select id="moneda" name="moneda" class="form-control" required>
-                                        <option value="COP">COP - Peso Colombiano</option>
-                                        <option value="USD">USD - Dólar Estadounidense</option>
-                                        <option value="EUR">EUR - Euro</option>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        El campo Moneda es requerido.
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-primary" onclick="calcularGasto()">Calcular <i
-                                            class="bi bi-calculator-fill"></i></button>
-                                    <button type="reset" class="btn btn-warning">Reiniciar <i
-                                            class="bi bi-x-octagon-fill"></i></button>
-                                </div>
-                            </form>
-                        </fieldset>
-                    </div>
-                </div>
-            </article>
-            <article class="col-md-9 mb-3 py-3">
-                <div class="card">
-                    <div class="card-body">
-                        <caption>Últimos 10 Cálculos</caption>
-                        <table id="tablaCalculos" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th style="width: 150px;">Alias</th>
-                                    <th>Costo de Energía (kWh)</th>
-                                    <th>Consumo (W)</th>
-                                    <th>Uso Diario (horas)</th>
-                                    <th>Gasto De Dinero Mensual (30 días)</th>
-                                    <th>Gasto De Dinero Anual (365 días)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <div id="fall-divider"></div>
-        <!-- Footer -->
-        <footer class="container py-4 mt-3">
-            <div class="row align-items-center text-center text-md-start">
-                <!-- Firma a la izquierda -->
-                <div
-                    class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
-                    <span class="text-body-secondary">© 2024 - <span id="anioActual"></span>,</span>
-                    <span id="miFirma" class="ms-2" style="font-size: 26px;">Daniel Bautista Pradilla.</span>
-                </div>
-                <script>
-                    // Al cargar la página, se inserta el año actual
-                    document.addEventListener("DOMContentLoaded", function () {
-                        const anio = new Date().getFullYear();
-                        document.getElementById("anioActual").textContent = anio;
-                    });
-                </script>
-
-                <!-- Botón en el centro, siempre centrado -->
-                <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
-                    <a href="index.html" class="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
-                        aria-label="Menú de aplicación">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                            class="bi bi-house" viewBox="0 0 16 16">
-                            <path
-                                d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
-                        </svg>
-                        Menú de aplicación
-                    </a>
-                </div>
-
-                <!-- Enlaces a la derecha -->
-                <div class="col-md-4 d-flex justify-content-center justify-content-md-end gap-3">
-                    <a class="text-body-secondary" href="https://github.com/Danielbp019/" target="_blank"
-                        aria-label="Perfil de GitHub">
-                        <i class="bi bi-github" style="font-size: 1.5rem;"></i>
-                    </a>
-                    <a class="text-body-secondary" href="https://getbootstrap.com/" target="_blank"
-                        aria-label="Sitio oficial de Bootstrap">
-                        <i class="bi bi-bootstrap-fill" style="font-size: 1.5rem;"></i>
-                    </a>
-                    <a class="text-body-secondary" href="#" aria-label="Ir arriba">
-                        <i class="bi bi-arrow-up-circle-fill" style="font-size: 1.5rem;"></i>
-                    </a>
-                </div>
+          <div class="card">
+            <div class="card-body">
+              <fieldset>
+                <legend>Datos</legend>
+                <form id="form" class="needs-validation" novalidate>
+                  <div class="mb-3">
+                    <label for="alias" class="form-label"
+                      >Alias (*)
+                      <i
+                        class="bi bi-info-circle-fill"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        data-bs-title="Sobrenombre al cálculo que realizarás"
+                      ></i>
+                      :</label
+                    >
+                    <input type="text" id="alias" name="alias" class="form-control" spellcheck="true" required />
+                    <div class="invalid-feedback">El campo Alias es requerido.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="costeEnergia" class="form-label"
+                      >Costo de Energía (kWh) (*)
+                      <i
+                        class="bi bi-info-circle-fill"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        data-bs-title="Está en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio"
+                      ></i>
+                      :</label
+                    >
+                    <input
+                      type="number"
+                      step="0.1"
+                      pattern="\d+(\.\d{1,})?"
+                      id="costeEnergia"
+                      name="costeEnergia"
+                      class="form-control"
+                      min="1"
+                      required
+                    />
+                    <div class="invalid-feedback">El campo Costo de Energía es requerido.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="consumo" class="form-label"
+                      >Consumo (W) (*)
+                      <i
+                        class="bi bi-info-circle-fill"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        data-bs-title="Consumo del aparato a medir"
+                      ></i>
+                      :</label
+                    >
+                    <input
+                      type="number"
+                      step="0.1"
+                      pattern="\d+(\.\d{1,})?"
+                      id="consumo"
+                      name="consumo"
+                      class="form-control"
+                      min="1"
+                      required
+                    />
+                    <div class="invalid-feedback">El campo Consumo es requerido.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="usoDiario" class="form-label"
+                      >Uso Diario (Seleccione las horas) (*)
+                      <i
+                        class="bi bi-info-circle-fill"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        data-bs-title="Horas de uso diario"
+                      ></i>
+                      :</label
+                    >
+                    <select id="usoDiario" name="usoDiario" class="form-control" required>
+                      <!-- Las opciones se generarán dinámicamente con JavaScript -->
+                    </select>
+                    <div class="invalid-feedback">El campo Uso Diario es requerido.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="moneda" class="form-label"
+                      >Moneda (Seleccione el formato) (*)
+                      <i
+                        class="bi bi-info-circle-fill"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        data-bs-title="Tipo de moneda para realizar el cálculo"
+                      ></i>
+                      :</label
+                    >
+                    <select id="moneda" name="moneda" class="form-control" required>
+                      <option value="COP">COP - Peso Colombiano</option>
+                      <option value="USD">USD - Dólar Estadounidense</option>
+                      <option value="EUR">EUR - Euro</option>
+                    </select>
+                    <div class="invalid-feedback">El campo Moneda es requerido.</div>
+                  </div>
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary" onclick="calcularGasto()">
+                      Calcular <i class="bi bi-calculator-fill"></i>
+                    </button>
+                    <button type="reset" class="btn btn-warning">Reiniciar <i class="bi bi-x-octagon-fill"></i></button>
+                  </div>
+                </form>
+              </fieldset>
             </div>
-        </footer>
-
-        <!-- Cambio dia y noche iconos svg -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
-            <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-                <path
-                    d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
-            </symbol>
-            <symbol id="sun-fill" viewBox="0 0 16 16">
-                <path
-                    d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-            </symbol>
-        </svg>
-
-        <!-- Cambio dia y noche switch -->
-        <div class="position-fixed bottom-0 end-0 custom-margin me-3 bd-mode-toggle">
-            <div class="form-check form-switch form-switch-lg">
-                <input class="form-check-input glow" type="checkbox" id="themeSwitch" aria-label="Toggle theme">
-                <label class="form-check-label d-flex align-items-center" for="themeSwitch">
-                    <svg class="bi my-1 theme-icon-active ms-2" width="1.5em" height="1.5em">
-                        <use href="#"></use>
-                    </svg>
-                </label>
+          </div>
+        </article>
+        <article class="col-md-9 mb-3 py-3">
+          <div class="card">
+            <div class="card-body">
+              <caption>
+                Últimos 10 Cálculos
+              </caption>
+              <table id="tablaCalculos" class="table table-hover">
+                <thead>
+                  <tr>
+                    <th style="width: 150px">Alias</th>
+                    <th>Costo de Energía (kWh)</th>
+                    <th>Consumo (W)</th>
+                    <th>Uso Diario (horas)</th>
+                    <th>Gasto De Dinero Mensual (30 días)</th>
+                    <th>Gasto De Dinero Anual (365 días)</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
             </div>
+          </div>
+        </article>
+      </section>
+
+      <div id="fall-divider"></div>
+      <!-- Footer -->
+      <footer class="container py-4 mt-3">
+        <div class="row align-items-center text-center text-md-start">
+          <!-- Firma a la izquierda -->
+          <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
+            <span class="text-body-secondary">© 2024 - <span id="anioActual"></span>,</span>
+            <span id="miFirma" class="ms-2" style="font-size: 26px">Daniel Bautista Pradilla.</span>
+          </div>
+          <script>
+            // Al cargar la página, se inserta el año actual
+            document.addEventListener("DOMContentLoaded", function () {
+              const anio = new Date().getFullYear();
+              document.getElementById("anioActual").textContent = anio;
+            });
+          </script>
+
+          <!-- Botón en el centro, siempre centrado -->
+          <div class="col-md-4 mb-3 mb-md-0 d-flex justify-content-center">
+            <a
+              href="index.html"
+              class="btn btn-outline-secondary d-inline-flex align-items-center gap-2"
+              aria-label="Menú de aplicación"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-house"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"
+                />
+              </svg>
+              Menú de aplicación
+            </a>
+          </div>
+
+          <!-- Enlaces a la derecha -->
+          <div class="col-md-4 d-flex justify-content-center justify-content-md-end gap-3">
+            <a
+              class="text-body-secondary"
+              href="https://github.com/Danielbp019/"
+              target="_blank"
+              aria-label="Perfil de GitHub"
+            >
+              <i class="bi bi-github" style="font-size: 1.5rem"></i>
+            </a>
+            <a
+              class="text-body-secondary"
+              href="https://getbootstrap.com/"
+              target="_blank"
+              aria-label="Sitio oficial de Bootstrap"
+            >
+              <i class="bi bi-bootstrap-fill" style="font-size: 1.5rem"></i>
+            </a>
+            <a class="text-body-secondary" href="#" aria-label="Ir arriba">
+              <i class="bi bi-arrow-up-circle-fill" style="font-size: 1.5rem"></i>
+            </a>
+          </div>
         </div>
+      </footer>
 
+      <!-- Cambio dia y noche iconos svg -->
+      <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+        <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+          <path
+            d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
+          />
+        </symbol>
+        <symbol id="sun-fill" viewBox="0 0 16 16">
+          <path
+            d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+          />
+        </symbol>
+      </svg>
+
+      <!-- Cambio dia y noche switch -->
+      <div class="position-fixed bottom-0 end-0 custom-margin me-3 bd-mode-toggle">
+        <div class="form-check form-switch form-switch-lg">
+          <input class="form-check-input glow" type="checkbox" id="themeSwitch" aria-label="Toggle theme" />
+          <label class="form-check-label d-flex align-items-center" for="themeSwitch">
+            <svg class="bi my-1 theme-icon-active ms-2" width="1.5em" height="1.5em">
+              <use href="#"></use>
+            </svg>
+          </label>
+        </div>
+      </div>
     </main>
-
-</body>
-
+  </body>
 </html>
