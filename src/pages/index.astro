@@ -1,82 +1,97 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import Footer from "../components/Footer.astro";
-import rayosImg from "../assets/img/rayos.jpg";
-import pcImg from "../assets/img/pc.jpg";
 import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout title="Timber-Tec">
-  <main class="justify-content-center">
+  <Navbar />
+  <main>
     <!-- Hero principal -->
     <section id="hero" class="hero">
-      <div class="hero-content">
-        <h1 id="miFirma">Timber-Tec</h1>
-        <p class="lead">
-          Esta página está pensada para facilitarte herramientas prácticas y rápidas. Aquí encontrarás utilidades como
-          la calculadora de consumo eléctrico y la calculadora de presupuesto para PC. Todo en un mismo lugar, accesible
-          y optimizado para que ahorres tiempo.
-        </p>
-        <a href="#herramientas" class="btn btn-warning btn-lg">Explorar herramientas</a>
-      </div>
-    </section>
-    <Navbar />
-
-    <!-- Sección de herramientas -->
-    <section id="herramientas" class="container-fluid px-4 py-5">
-      <header class="text-center mb-4">
-        <h2 class="fw-bold display-5">Menú de aplicación</h2>
-      </header>
-      <div class="row justify-content-center align-items-stretch g-4">
-        <div class="col-lg-4">
-          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-            <Image
-              src={rayosImg}
-              alt="Fondo con rayos de luz abstractos"
-              format="webp"
-              quality={80}
-              class="card-background-image"
-            />
-            <div class="overlay"></div>
-            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h3 class="mb-4 display-6 lh-1 fw-bold">Calculadora de consumo eléctrico</h3>
-              <div class="mt-auto d-grid gap-2">
-                <a href="consumo/" class="btn btn-warning overlay-button" role="button">Ir a la Calculadora</a>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div class="row min-vh-100 align-items-center justify-content-center g-5">
+          <!-- Columna Izquierda: Título y Descripción -->
+          <div class="col-lg-6 text-center text-lg-start">
+            <h1 id="miFirma" class="display-3">Timber-Tec</h1>
+            <p class="lead">
+              Esta página está pensada para facilitarte herramientas prácticas y rápidas. Aquí encontrarás utilidades
+              como la calculadora de consumo eléctrico y la calculadora de presupuesto para PC. Todo en un mismo lugar,
+              accesible y optimizado para que ahorres tiempo.
+            </p>
+          </div>
+          <!-- Columna Derecha: Tabs -->
+          <div class="col-lg-6">
+            <div class="card text-bg-dark border-light">
+              <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="hero-tabs" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="consumo-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#consumo-pane"
+                      type="button"
+                      role="tab"
+                      aria-controls="consumo-pane"
+                      aria-selected="true">Consumo</button
+                    >
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="presupuesto-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#presupuesto-pane"
+                      type="button"
+                      role="tab"
+                      aria-controls="presupuesto-pane"
+                      aria-selected="false">Presupuesto</button
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body tab-content" id="hero-tabs-content">
+                <div
+                  class="tab-pane fade show active p-3"
+                  id="consumo-pane"
+                  role="tabpanel"
+                  aria-labelledby="consumo-tab"
+                  tabindex="0"
+                >
+                  <h5 class="card-title">Consumo eléctrico en Watts</h5>
+                  <p class="card-text">
+                    Valor del consumo de artículos eléctricos y electrónicos. Este simple programa te da el valor del
+                    dinero a pagar en la factura, diariamente, a fin de mes y dentro de un año, para tener un panorama
+                    claro de cuánto dinero se consume en operación.
+                  </p>
+                  <a href="consumo/" class="btn btn-warning">Ir a la Calculadora</a>
+                </div>
+                <div
+                  class="tab-pane fade p-3"
+                  id="presupuesto-pane"
+                  role="tabpanel"
+                  aria-labelledby="presupuesto-tab"
+                  tabindex="0"
+                >
+                  <h5 class="card-title">Presupuesto para armar PC por piezas</h5>
+                  <p class="card-text">
+                    Programa inspirado en la idea de @HeLion1ero. Con base en la cantidad de dinero disponible, te da un
+                    valor aproximado de gasto por componente para tener un equilibrio en la compra de las piezas según
+                    diferentes presupuestos y usos.
+                  </p>
+                  <a href="presupuesto/" class="btn btn-warning">Ir al Presupuesto</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="col-lg-4">
-          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
-            <Image
-              src={pcImg}
-              alt="Componentes internos de un ordenador"
-              format="webp"
-              quality={80}
-              class="card-background-image"
-            />
-            <div class="overlay"></div>
-            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-              <h3 class="mb-4 display-6 lh-1 fw-bold">Calculadora de presupuesto para PC</h3>
-              <div class="mt-auto d-grid gap-2">
-                <a href="presupuesto/" class="btn btn-warning overlay-button" role="button">Ir al Presupuesto</a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
-
-    <!-- Divider -->
-    <div id="fall-divider"></div>
-
-    <!-- Footer Component -->
-    <Footer />
 
     <!-- Componentes -->
     <ThemeToggle />
+    <Footer />
   </main>
 </Layout>
