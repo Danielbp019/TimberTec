@@ -5,6 +5,7 @@ import ThemeToggle from "../components/ThemeToggle.astro";
 import Footer from "../components/Footer.astro";
 import rayosImg from "../assets/img/rayos.jpg";
 import pcImg from "../assets/img/pc.jpg";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout title="Timber-Tec">
@@ -15,12 +16,13 @@ import pcImg from "../assets/img/pc.jpg";
         <h1 id="miFirma">Timber-Tec</h1>
         <p class="lead">
           Esta página está pensada para facilitarte herramientas prácticas y rápidas. Aquí encontrarás utilidades como
-          la calculadora de consumo eléctrico y la calculadora de presupuesto para PC. Todo en un mismo lugar,
-          accesible y optimizado para que ahorres tiempo.
+          la calculadora de consumo eléctrico y la calculadora de presupuesto para PC. Todo en un mismo lugar, accesible
+          y optimizado para que ahorres tiempo.
         </p>
         <a href="#herramientas" class="btn btn-warning btn-lg">Explorar herramientas</a>
       </div>
     </section>
+    <Navbar />
 
     <!-- Sección de herramientas -->
     <section id="herramientas" class="container-fluid px-4 py-5">

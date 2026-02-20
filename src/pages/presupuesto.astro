@@ -3,10 +3,12 @@ import Layout from "../layouts/Layout.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import Footer from "../components/Footer.astro";
 import "../assets/styles/consumo.css";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <Layout title="Calculadora de presupuesto para PC">
-  <main class="justify-content-center pt-2">
+  <Navbar />
+  <main class="justify-content-center pt-4 mt-5">
     <header class="text-center mb-4">
       <h1 class="fw-bold display-4">Calculadora de presupuesto para PC</h1>
     </header>

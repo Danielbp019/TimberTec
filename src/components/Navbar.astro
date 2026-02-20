@@ -1,0 +1,38 @@
+---
+const pathname = Astro.url.pathname;
+---
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class={`nav-link ${pathname === "/" ? "active" : ""}`} href="/">
+            <i class="bi bi-house-door-fill me-2"></i>Inicio
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class={`nav-link ${pathname.startsWith("/consumo") ? "active" : ""}`} href="/consumo/"
+            ><i class="bi bi-lightning-charge-fill me-2"></i>Consumo</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class={`nav-link ${pathname.startsWith("/presupuesto") ? "active" : ""}`} href="/presupuesto/"
+            ><i class="bi bi-pc-display me-2"></i>Presupuesto</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
