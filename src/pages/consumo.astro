@@ -8,153 +8,157 @@ import Navbar from "../components/Navbar.astro";
 
 <Layout title="Calculadora de Consumo Eléctrico">
   <Navbar />
-  <main class="justify-content-center pt-4 mt-5">
-    <header class="text-center mb-4">
-      <h1 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h1>
-    </header>
-
-    <section class="container-fluid row">
-      <article class="col-md-3 mb-3 py-3">
-        <div class="card text-bg-dark border-light">
-          <div class="card-header">
-            <h5 class="card-title mb-0">Datos</h5>
-          </div>
-          <div class="card-body">
-            <fieldset>
-              <form id="form" class="needs-validation" novalidate>
-                <div class="mb-3">
-                  <label for="alias" class="form-label">
-                    Alias (*)
-                    <i
-                      class="bi bi-info-circle-fill"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="right"
-                      data-bs-title="Sobrenombre al cálculo que realizarás"></i>
-                    :
-                  </label>
-                  <input type="text" id="alias" name="alias" class="form-control" spellcheck="true" required />
-                  <div class="invalid-feedback">El campo Alias es requerido.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="costeEnergia" class="form-label">
-                    Costo de Energía (kWh) (*)
-                    <i
-                      class="bi bi-info-circle-fill"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="right"
-                      data-bs-title="Está en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio"
-                    ></i>
-                    :
-                  </label>
-                  <input
-                    type="number"
-                    pattern="\d+(\.\d{1,})?"
-                    id="costeEnergia"
-                    name="costeEnergia"
-                    class="form-control"
-                    min="1"
-                    required
-                  />
-                  <div class="invalid-feedback">El campo Costo de Energía es requerido.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="consumo" class="form-label">
-                    Consumo (W) (*)
-                    <i
-                      class="bi bi-info-circle-fill"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="right"
-                      data-bs-title="Consumo del aparato a medir"></i>
-                    :
-                  </label>
-                  <input
-                    type="number"
-                    pattern="\d+(\.\d{1,})?"
-                    id="consumo"
-                    name="consumo"
-                    class="form-control"
-                    min="1"
-                    required
-                  />
-                  <div class="invalid-feedback">El campo Consumo es requerido.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="usoDiario" class="form-label">
-                    Uso Diario (Seleccione las horas) (*)
-                    <i
-                      class="bi bi-info-circle-fill"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="right"
-                      data-bs-title="Horas de uso diario"></i>
-                    :
-                  </label>
-                  <select id="usoDiario" name="usoDiario" class="form-control" required>
-                    <!-- Las opciones se generarán dinámicamente con JavaScript -->
-                  </select>
-                  <div class="invalid-feedback">El campo Uso Diario es requerido.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="moneda" class="form-label">
-                    Moneda (Seleccione el formato) (*)
-                    <i
-                      class="bi bi-info-circle-fill"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="right"
-                      data-bs-title="Tipo de moneda para realizar el cálculo"></i>
-                    :
-                  </label>
-                  <select id="moneda" name="moneda" class="form-control" required>
-                    <option value="COP">COP - Peso Colombiano</option>
-                    <option value="USD">USD - Dólar Estadounidense</option>
-                    <option value="EUR">EUR - Euro</option>
-                  </select>
-                  <div class="invalid-feedback">El campo Moneda es requerido.</div>
-                </div>
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary" id="btnCalcular">
-                    Calcular <i class="bi bi-calculator-fill"></i>
-                  </button>
-                  <button type="reset" class="btn btn-warning">Reiniciar <i class="bi bi-x-octagon-fill"></i></button>
-                </div>
-              </form>
-            </fieldset>
-          </div>
+  <main>
+    <section id="hero" class="hero">
+      <div class="container pb-5">
+        <header class="text-center mb-4">
+          <h1 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h1>
+        </header>
+        <div class="row">
+          <article class="col-md-3 mb-3 py-3">
+            <div class="card text-bg-dark border-light text-start">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Datos</h5>
+              </div>
+              <div class="card-body">
+                <fieldset>
+                  <form id="form" class="needs-validation" novalidate>
+                    <div class="mb-3">
+                      <label for="alias" class="form-label">
+                        Alias (*)
+                        <i
+                          class="bi bi-info-circle-fill"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="right"
+                          data-bs-title="Sobrenombre al cálculo que realizarás"></i>
+                        :
+                      </label>
+                      <input type="text" id="alias" name="alias" class="form-control" spellcheck="true" required />
+                      <div class="invalid-feedback">El campo Alias es requerido.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="costeEnergia" class="form-label">
+                        Costo de Energía (kWh) (*)
+                        <i
+                          class="bi bi-info-circle-fill"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="right"
+                          data-bs-title="Está en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio"
+                        ></i>
+                        :
+                      </label>
+                      <input
+                        type="number"
+                        pattern="\d+(\.\d{1,})?"
+                        id="costeEnergia"
+                        name="costeEnergia"
+                        class="form-control"
+                        min="1"
+                        required
+                      />
+                      <div class="invalid-feedback">El campo Costo de Energía es requerido.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="consumo" class="form-label">
+                        Consumo (W) (*)
+                        <i
+                          class="bi bi-info-circle-fill"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="right"
+                          data-bs-title="Consumo del aparato a medir"></i>
+                        :
+                      </label>
+                      <input
+                        type="number"
+                        pattern="\d+(\.\d{1,})?"
+                        id="consumo"
+                        name="consumo"
+                        class="form-control"
+                        min="1"
+                        required
+                      />
+                      <div class="invalid-feedback">El campo Consumo es requerido.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="usoDiario" class="form-label">
+                        Uso Diario (Número de horas) (*)
+                        <i
+                          class="bi bi-info-circle-fill"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="right"
+                          data-bs-title="Horas de uso diario"></i>
+                        :
+                      </label>
+                      <select id="usoDiario" name="usoDiario" class="form-control" required>
+                        <!-- Las opciones se generarán dinámicamente con JavaScript -->
+                      </select>
+                      <div class="invalid-feedback">El campo Uso Diario es requerido.</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="moneda" class="form-label">
+                        Moneda (Formato) (*)
+                        <i
+                          class="bi bi-info-circle-fill"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="right"
+                          data-bs-title="Tipo de moneda para realizar el cálculo"></i>
+                        :
+                      </label>
+                      <select id="moneda" name="moneda" class="form-control" required>
+                        <option value="COP">COP - Peso Colombiano</option>
+                        <option value="USD">USD - Dólar Estadounidense</option>
+                        <option value="EUR">EUR - Euro</option>
+                      </select>
+                      <div class="invalid-feedback">El campo Moneda es requerido.</div>
+                    </div>
+                    <div class="text-center">
+                      <button type="button" class="btn btn-primary" id="btnCalcular">
+                        Calcular <i class="bi bi-calculator-fill"></i>
+                      </button>
+                      <button type="reset" class="btn btn-warning"
+                        >Reiniciar <i class="bi bi-x-octagon-fill"></i></button
+                      >
+                    </div>
+                  </form>
+                </fieldset>
+              </div>
+            </div>
+          </article>
+          <article class="col-md-9 mb-3 py-3">
+            <div class="card text-bg-dark border-light text-start">
+              <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">Últimos 10 Cálculos</h5>
+                <button
+                  id="btnLimpiarTabla"
+                  class="btn btn-sm btn-outline-danger"
+                  title="Limpiar tabla"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  data-bs-title="Limpiar tabla"
+                >
+                  <i class="bi bi-trash"></i>
+                </button>
+              </div>
+              <div class="card-body">
+                <table id="tablaCalculos" class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th style="width: 150px">Alias</th>
+                      <th>Costo de Energía (kWh)</th>
+                      <th>Consumo (W)</th>
+                      <th>Uso Diario (horas)</th>
+                      <th>Gasto De Dinero Mensual (30 días)</th>
+                      <th>Gasto De Dinero Anual (365 días)</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
-      <article class="col-md-9 mb-3 py-3">
-        <div class="card text-bg-dark border-light">
-          <div class="card-header d-flex justify-content-between align-items-center">
-              <h5 class="card-title mb-0">Últimos 10 Cálculos</h5>
-              <button
-                id="btnLimpiarTabla"
-                class="btn btn-sm btn-outline-danger"
-                title="Limpiar tabla"
-                data-bs-toggle="tooltip"
-                data-bs-placement="top"
-                data-bs-title="Limpiar tabla"
-              >
-                <i class="bi bi-trash"></i>
-              </button>
-          </div>
-          <div class="card-body">
-            <table id="tablaCalculos" class="table table-hover">
-              <thead>
-                <tr>
-                  <th style="width: 150px">Alias</th>
-                  <th>Costo de Energía (kWh)</th>
-                  <th>Consumo (W)</th>
-                  <th>Uso Diario (horas)</th>
-                  <th>Gasto De Dinero Mensual (30 días)</th>
-                  <th>Gasto De Dinero Anual (365 días)</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-      </article>
+      </div>
     </section>
-
     <Footer />
     <ThemeToggle />
   </main>

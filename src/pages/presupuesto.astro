@@ -8,324 +8,324 @@ import Navbar from "../components/Navbar.astro";
 
 <Layout title="Calculadora de presupuesto para PC">
   <Navbar />
-  <main class="justify-content-center pt-4 mt-5">
-    <header class="text-center mb-4">
-      <h1 class="fw-bold display-4">Calculadora de presupuesto para PC</h1>
-    </header>
-
-    <section class="container px-5 mb-5">
-      <div class="card text-bg-dark border-light">
-        <div class="card-header">
-          <!-- Tabs de navegación -->
-          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link active"
-                id="tab1"
-                data-bs-toggle="tab"
-                data-bs-target="#hasta1000"
-                type="button"
-                role="tab"
-                aria-controls="hasta1000"
-                aria-selected="true">Hasta $ 1000</button
-              >
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="tab2"
-                data-bs-toggle="tab"
-                data-bs-target="#entre1000y1500"
-                type="button"
-                role="tab"
-                aria-controls="entre1000y1500"
-                aria-selected="false">Entre $ 1000 y 1500</button
-              >
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="tab3"
-                data-bs-toggle="tab"
-                data-bs-target="#entre1500y2000"
-                type="button"
-                role="tab"
-                aria-controls="entre1500y2000"
-                aria-selected="false">Entre $ 1500 y 2000</button
-              >
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="tab4"
-                data-bs-toggle="tab"
-                data-bs-target="#entre2000y3000"
-                type="button"
-                role="tab"
-                aria-controls="entre2000y3000"
-                aria-selected="false">Entre $ 2000 y 3000</button
-              >
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="tab5"
-                data-bs-toggle="tab"
-                data-bs-target="#csgofortnitevalorant"
-                type="button"
-                role="tab"
-                aria-controls="csgofortnitevalorant"
-                aria-selected="false">Para CSGO, Fortnite y Valorant</button
-              >
-            </li>
-            <li class="nav-item" role="presentation">
-              <button
-                class="nav-link"
-                id="tab6"
-                data-bs-toggle="tab"
-                data-bs-target="#creditos"
-                type="button"
-                role="tab"
-                aria-controls="creditos"
-                aria-selected="false">Creditos y explicación</button
-              >
-            </li>
-          </ul>
-        </div>
-
-        <!-- Contenido de los Tabs -->
-        <div class="card-body tab-content" id="myTabContent">
-          <!-- Tab 1: Hasta 1000 -->
-          <div class="tab-pane fade show active" id="hasta1000" role="tabpanel" aria-labelledby="tab1">
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Dinero a gastar</h5>
-                <form id="formHasta1000" class="needs-validation" novalidate>
-                  <input
-                    type="number"
-                    class="form-control mb-2"
-                    id="dineroHasta1000"
-                    placeholder="Ingrese la cantidad de dinero"
-                    min="1"
-                    max="1000"
-                    required
-                  />
-                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida de dinero.</div>
-                  <button class="btn btn-primary" type="submit">Calcular</button>
-                  <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
-                </form>
-              </div>
-            </div>
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Componente</th>
-                  <th>Cuanto gastar</th>
-                  <th>Resultado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Gráfica</td><td>45 %</td><td></td></tr>
-                <tr><td>CPU</td><td>14 %</td><td></td></tr>
-                <tr><td>Placa Madre</td><td>13 %</td><td></td></tr>
-                <tr><td>Fuente</td><td>8 %</td><td></td></tr>
-                <tr><td>SSD</td><td>6 %</td><td></td></tr>
-                <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
-                <tr><td>RAM</td><td>5 %</td><td></td></tr>
-                <tr><td>Disipador</td><td>3 %</td><td></td></tr>
-              </tbody>
-            </table>
+  <main>
+    <section id="hero" class="hero">
+      <div class="container pb-5">
+        <header class="text-center mb-4">
+          <h1 class="fw-bold display-4">Calculadora de presupuesto para PC</h1>
+        </header>
+        <div class="card text-bg-dark border-light text-start">
+          <div class="card-header">
+            <!-- Tabs de navegación -->
+            <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="tab1"
+                  data-bs-toggle="tab"
+                  data-bs-target="#hasta1000"
+                  type="button"
+                  role="tab"
+                  aria-controls="hasta1000"
+                  aria-selected="true">Hasta $ 1000</button
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="tab2"
+                  data-bs-toggle="tab"
+                  data-bs-target="#entre1000y1500"
+                  type="button"
+                  role="tab"
+                  aria-controls="entre1000y1500"
+                  aria-selected="false">Entre $ 1000 y 1500</button
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="tab3"
+                  data-bs-toggle="tab"
+                  data-bs-target="#entre1500y2000"
+                  type="button"
+                  role="tab"
+                  aria-controls="entre1500y2000"
+                  aria-selected="false">Entre $ 1500 y 2000</button
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="tab4"
+                  data-bs-toggle="tab"
+                  data-bs-target="#entre2000y3000"
+                  type="button"
+                  role="tab"
+                  aria-controls="entre2000y3000"
+                  aria-selected="false">Entre $ 2000 y 3000</button
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="tab5"
+                  data-bs-toggle="tab"
+                  data-bs-target="#csgofortnitevalorant"
+                  type="button"
+                  role="tab"
+                  aria-controls="csgofortnitevalorant"
+                  aria-selected="false">Para CSGO, Fortnite y Valorant</button
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="tab6"
+                  data-bs-toggle="tab"
+                  data-bs-target="#creditos"
+                  type="button"
+                  role="tab"
+                  aria-controls="creditos"
+                  aria-selected="false">Creditos y explicación</button
+                >
+              </li>
+            </ul>
           </div>
 
-          <!-- Tab 2: Entre 1000 y 1500 -->
-          <div class="tab-pane fade" id="entre1000y1500" role="tabpanel" aria-labelledby="tab2">
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Dinero a gastar</h5>
-                <form id="formEntre1000y1500" class="needs-validation" novalidate>
-                  <input
-                    type="number"
-                    class="form-control mb-2"
-                    id="dineroEntre1000y1500"
-                    placeholder="Ingrese la cantidad de dinero"
-                    min="1000"
-                    max="1500"
-                    required
-                  />
-                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1000 y 1500.</div>
-                  <button class="btn btn-primary" type="submit">Calcular</button>
-                  <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
-                </form>
-              </div>
-            </div>
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Componente</th>
-                  <th>Cuanto gastar</th>
-                  <th>Resultado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Gráfica</td><td>46 %</td><td></td></tr>
-                <tr><td>CPU</td><td>14 %</td><td></td></tr>
-                <tr><td>Placa Madre</td><td>11 %</td><td></td></tr>
-                <tr><td>Fuente</td><td>7 %</td><td></td></tr>
-                <tr><td>SSD</td><td>6 %</td><td></td></tr>
-                <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
-                <tr><td>RAM</td><td>7 %</td><td></td></tr>
-                <tr><td>Disipador</td><td>3 %</td><td></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Tab 3: Entre 1500 y 2000 -->
-          <div class="tab-pane fade" id="entre1500y2000" role="tabpanel" aria-labelledby="tab3">
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Dinero a gastar</h5>
-                <form id="formEntre1500y2000" class="needs-validation" novalidate>
-                  <input
-                    type="number"
-                    class="form-control mb-2"
-                    id="dineroEntre1500y2000"
-                    placeholder="Ingrese la cantidad de dinero"
-                    min="1500"
-                    max="2000"
-                    required
-                  />
-                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1500 y 2000.</div>
-                  <button class="btn btn-primary" type="submit">Calcular</button>
-                  <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
-                </form>
-              </div>
-            </div>
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Componente</th>
-                  <th>Cuanto gastar</th>
-                  <th>Resultado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Gráfica</td><td>48 %</td><td></td></tr>
-                <tr><td>CPU</td><td>14 %</td><td></td></tr>
-                <tr><td>Placa Madre</td><td>10 %</td><td></td></tr>
-                <tr><td>Fuente</td><td>7 %</td><td></td></tr>
-                <tr><td>SSD</td><td>6 %</td><td></td></tr>
-                <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
-                <tr><td>RAM</td><td>6 %</td><td></td></tr>
-                <tr><td>Disipador</td><td>3 %</td><td></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Tab 4: Entre 2000 y 3000 -->
-          <div class="tab-pane fade" id="entre2000y3000" role="tabpanel" aria-labelledby="tab4">
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Dinero a gastar</h5>
-                <form id="formEntre2000y3000" class="needs-validation" novalidate>
-                  <input
-                    type="number"
-                    class="form-control mb-2"
-                    id="dineroEntre2000y3000"
-                    placeholder="Ingrese la cantidad de dinero"
-                    min="2000"
-                    max="3000"
-                    required
-                  />
-                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 2000 y 3000.</div>
-                  <button class="btn btn-primary" type="submit">Calcular</button>
-                  <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
-                </form>
-              </div>
-            </div>
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Componente</th>
-                  <th>Cuanto gastar</th>
-                  <th>Resultado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Gráfica</td><td>50 %</td><td></td></tr>
-                <tr><td>CPU</td><td>13 %</td><td></td></tr>
-                <tr><td>Placa Madre</td><td>9 %</td><td></td></tr>
-                <tr><td>Fuente</td><td>7 %</td><td></td></tr>
-                <tr><td>SSD</td><td>6 %</td><td></td></tr>
-                <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
-                <tr><td>RAM</td><td>6 %</td><td></td></tr>
-                <tr><td>Disipador</td><td>3 %</td><td></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Tab 5: CSGO, Fortnite, Valorant -->
-          <div class="tab-pane fade" id="csgofortnitevalorant" role="tabpanel" aria-labelledby="tab5">
-            <div class="card mb-3">
-              <div class="card-body">
-                <h5 class="card-title">Dinero a gastar</h5>
-                <form id="formCsgofortnitevalorant" class="needs-validation" novalidate>
-                  <input
-                    type="number"
-                    class="form-control mb-2"
-                    id="dineroCsgofortnitevalorant"
-                    placeholder="Ingrese la cantidad de dinero"
-                    required
-                  />
-                  <div class="invalid-feedback">Por favor, ingresa una cantidad válida de dinero.</div>
-                  <button class="btn btn-primary" type="submit">Calcular</button>
-                  <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
-                </form>
-              </div>
-            </div>
-            <table class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                  <th>Componente</th>
-                  <th>Cuanto gastar</th>
-                  <th>Resultado</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Gráfica</td><td>33 %</td><td></td></tr>
-                <tr><td>CPU</td><td>23 %</td><td></td></tr>
-                <tr><td>Placa Madre</td><td>12 %</td><td></td></tr>
-                <tr><td>Fuente</td><td>7 %</td><td></td></tr>
-                <tr><td>SSD</td><td>6 %</td><td></td></tr>
-                <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
-                <tr><td>RAM</td><td>9 %</td><td></td></tr>
-                <tr><td>Disipador</td><td>4 %</td><td></td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <!-- Tab 6: Creditos -->
-          <div class="tab-pane fade" id="creditos" role="tabpanel" aria-labelledby="tab6">
-            <div class="card mb-3">
-              <div class="card-body text-center">
-                <p class="card-text">
-                  ¡Hola @HeLion1ero!<br /><br />
-                  Quería tomarme un momento para agradecerte por el increíble video que creaste sobre la distribución del
-                  presupuesto para la construcción de PC por piezas. El programa opera de la misma forma que el documento
-                  que mostraste. Sin tu video, este proyecto no habría sido posible. Gracias por tu dedicación y esfuerzo.
-                  Estoy seguro de que tu comunidad apreciará tanto tu trabajo como yo.
-                </p>
-                <div class="d-flex justify-content-center">
-                  <lite-youtube videoid="Bsw-cmeGmxw"></lite-youtube>
+          <!-- Contenido de los Tabs -->
+          <div class="card-body tab-content" id="myTabContent">
+            <!-- Tab 1: Hasta 1000 -->
+            <div class="tab-pane fade show active" id="hasta1000" role="tabpanel" aria-labelledby="tab1">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Dinero a gastar</h5>
+                  <form id="formHasta1000" class="needs-validation" novalidate>
+                    <input
+                      type="number"
+                      class="form-control mb-2"
+                      id="dineroHasta1000"
+                      placeholder="Ingrese la cantidad de dinero"
+                      min="1"
+                      max="1000"
+                      required
+                    />
+                    <div class="invalid-feedback">Por favor, ingresa una cantidad válida de dinero.</div>
+                    <button class="btn btn-primary" type="submit">Calcular</button>
+                    <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
+                  </form>
                 </div>
-                <br />
-                <p class="card-text">¡Un abrazo y sigue creando contenido increíble!</p>
+              </div>
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Componente</th>
+                    <th>Cuanto gastar</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Gráfica</td><td>45 %</td><td></td></tr>
+                  <tr><td>CPU</td><td>14 %</td><td></td></tr>
+                  <tr><td>Placa Madre</td><td>13 %</td><td></td></tr>
+                  <tr><td>Fuente</td><td>8 %</td><td></td></tr>
+                  <tr><td>SSD</td><td>6 %</td><td></td></tr>
+                  <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
+                  <tr><td>RAM</td><td>5 %</td><td></td></tr>
+                  <tr><td>Disipador</td><td>3 %</td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tab 2: Entre 1000 y 1500 -->
+            <div class="tab-pane fade" id="entre1000y1500" role="tabpanel" aria-labelledby="tab2">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Dinero a gastar</h5>
+                  <form id="formEntre1000y1500" class="needs-validation" novalidate>
+                    <input
+                      type="number"
+                      class="form-control mb-2"
+                      id="dineroEntre1000y1500"
+                      placeholder="Ingrese la cantidad de dinero"
+                      min="1000"
+                      max="1500"
+                      required
+                    />
+                    <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1000 y 1500.</div>
+                    <button class="btn btn-primary" type="submit">Calcular</button>
+                    <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
+                  </form>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Componente</th>
+                    <th>Cuanto gastar</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Gráfica</td><td>46 %</td><td></td></tr>
+                  <tr><td>CPU</td><td>14 %</td><td></td></tr>
+                  <tr><td>Placa Madre</td><td>11 %</td><td></td></tr>
+                  <tr><td>Fuente</td><td>7 %</td><td></td></tr>
+                  <tr><td>SSD</td><td>6 %</td><td></td></tr>
+                  <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
+                  <tr><td>RAM</td><td>7 %</td><td></td></tr>
+                  <tr><td>Disipador</td><td>3 %</td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tab 3: Entre 1500 y 2000 -->
+            <div class="tab-pane fade" id="entre1500y2000" role="tabpanel" aria-labelledby="tab3">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Dinero a gastar</h5>
+                  <form id="formEntre1500y2000" class="needs-validation" novalidate>
+                    <input
+                      type="number"
+                      class="form-control mb-2"
+                      id="dineroEntre1500y2000"
+                      placeholder="Ingrese la cantidad de dinero"
+                      min="1500"
+                      max="2000"
+                      required
+                    />
+                    <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 1500 y 2000.</div>
+                    <button class="btn btn-primary" type="submit">Calcular</button>
+                    <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
+                  </form>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Componente</th>
+                    <th>Cuanto gastar</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Gráfica</td><td>48 %</td><td></td></tr>
+                  <tr><td>CPU</td><td>14 %</td><td></td></tr>
+                  <tr><td>Placa Madre</td><td>10 %</td><td></td></tr>
+                  <tr><td>Fuente</td><td>7 %</td><td></td></tr>
+                  <tr><td>SSD</td><td>6 %</td><td></td></tr>
+                  <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
+                  <tr><td>RAM</td><td>6 %</td><td></td></tr>
+                  <tr><td>Disipador</td><td>3 %</td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tab 4: Entre 2000 y 3000 -->
+            <div class="tab-pane fade" id="entre2000y3000" role="tabpanel" aria-labelledby="tab4">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Dinero a gastar</h5>
+                  <form id="formEntre2000y3000" class="needs-validation" novalidate>
+                    <input
+                      type="number"
+                      class="form-control mb-2"
+                      id="dineroEntre2000y3000"
+                      placeholder="Ingrese la cantidad de dinero"
+                      min="2000"
+                      max="3000"
+                      required
+                    />
+                    <div class="invalid-feedback">Por favor, ingresa una cantidad válida entre 2000 y 3000.</div>
+                    <button class="btn btn-primary" type="submit">Calcular</button>
+                    <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
+                  </form>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Componente</th>
+                    <th>Cuanto gastar</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Gráfica</td><td>50 %</td><td></td></tr>
+                  <tr><td>CPU</td><td>13 %</td><td></td></tr>
+                  <tr><td>Placa Madre</td><td>9 %</td><td></td></tr>
+                  <tr><td>Fuente</td><td>7 %</td><td></td></tr>
+                  <tr><td>SSD</td><td>6 %</td><td></td></tr>
+                  <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
+                  <tr><td>RAM</td><td>6 %</td><td></td></tr>
+                  <tr><td>Disipador</td><td>3 %</td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tab 5: CSGO, Fortnite, Valorant -->
+            <div class="tab-pane fade" id="csgofortnitevalorant" role="tabpanel" aria-labelledby="tab5">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Dinero a gastar</h5>
+                  <form id="formCsgofortnitevalorant" class="needs-validation" novalidate>
+                    <input
+                      type="number"
+                      class="form-control mb-2"
+                      id="dineroCsgofortnitevalorant"
+                      placeholder="Ingrese la cantidad de dinero"
+                      required
+                    />
+                    <div class="invalid-feedback">Por favor, ingresa una cantidad válida de dinero.</div>
+                    <button class="btn btn-primary" type="submit">Calcular</button>
+                    <button class="btn btn-secondary btn-limpiar" type="button">Limpiar</button>
+                  </form>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Componente</th>
+                    <th>Cuanto gastar</th>
+                    <th>Resultado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Gráfica</td><td>33 %</td><td></td></tr>
+                  <tr><td>CPU</td><td>23 %</td><td></td></tr>
+                  <tr><td>Placa Madre</td><td>12 %</td><td></td></tr>
+                  <tr><td>Fuente</td><td>7 %</td><td></td></tr>
+                  <tr><td>SSD</td><td>6 %</td><td></td></tr>
+                  <tr><td>CAJA / Gabinete</td><td>6 %</td><td></td></tr>
+                  <tr><td>RAM</td><td>9 %</td><td></td></tr>
+                  <tr><td>Disipador</td><td>4 %</td><td></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Tab 6: Creditos -->
+            <div class="tab-pane fade" id="creditos" role="tabpanel" aria-labelledby="tab6">
+              <div class="card mb-3">
+                <div class="card-body text-center">
+                  <p class="card-text">
+                    ¡Hola @HeLion1ero!<br /><br />
+                    Quería tomarme un momento para agradecerte por el increíble video que creaste sobre la distribución del
+                    presupuesto para la construcción de PC por piezas. El programa opera de la misma forma que el documento
+                    que mostraste. Sin tu video, este proyecto no habría sido posible. Gracias por tu dedicación y esfuerzo.
+                    Estoy seguro de que tu comunidad apreciará tanto tu trabajo como yo.
+                  </p>
+                  <div class="d-flex justify-content-center">
+                    <lite-youtube videoid="Bsw-cmeGmxw"></lite-youtube>
+                  </div>
+                  <br />
+                  <p class="card-text">¡Un abrazo y sigue creando contenido increíble!</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <Footer />
     <ThemeToggle />
   </main>

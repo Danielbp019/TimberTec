@@ -110,7 +110,9 @@ lite-youtube {
   background-image: url("../img/fondo-hero.jpg");
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding-top: 6rem;
   color: #fff;
   display: flex;
   align-items: center;
@@ -151,9 +153,9 @@ lite-youtube {
   z-index: 2;
 }
 
+/* Fondo con imagen y una capa oscura superpuesta en index tabs */
 .tab-pane-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    var(--bg-image);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), var(--bg-image);
   background-size: cover;
   background-position: center;
 }
