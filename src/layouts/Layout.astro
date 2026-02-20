@@ -1,0 +1,78 @@
+---
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
+import "../assets/styles/consumo.css";
+import { fade, ClientRouter } from "astro:transitions";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Timber-Tec" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Daniel Bautista Pradilla" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body id="contenido" transition:animate={fade({ duration: "0.5s" })}>
+    <slot />
+    <script>
+      import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
+      // Función para inicializar el tema y los tooltips
+      const initApp = () => {
+        // 1. Lógica del Tema (Dark/Light Mode)
+        const getStoredTheme = () => localStorage.getItem("theme");
+        const setStoredTheme = (theme: string) => localStorage.setItem("theme", theme);
+
+        const getPreferredTheme = () => {
+          const storedTheme = getStoredTheme();
+          if (storedTheme) return storedTheme;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        };
+
+        const setTheme = (theme: string) => {
+          document.documentElement.setAttribute(
+            "data-bs-theme",
+            theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : theme,
+          );
+        };
+
+        const showActiveTheme = (theme: string) => {
+          const themeSwitch = document.querySelector("#themeSwitch") as HTMLInputElement;
+          const themeIconActive = document.querySelector(".theme-icon-active use");
+
+          if (themeSwitch && themeIconActive) {
+            const isDark = theme === "dark";
+            themeSwitch.checked = isDark;
+            themeIconActive.setAttribute("href", isDark ? "#moon-stars-fill" : "#sun-fill");
+          }
+        };
+
+        const currentTheme = getPreferredTheme();
+        setTheme(currentTheme);
+        showActiveTheme(currentTheme);
+
+        const themeSwitch = document.querySelector("#themeSwitch");
+        themeSwitch?.addEventListener("change", (e) => {
+          const newTheme = (e.target as HTMLInputElement).checked ? "dark" : "light";
+          setStoredTheme(newTheme);
+          setTheme(newTheme);
+          showActiveTheme(newTheme);
+        });
+      };
+
+      // Ejecutar en cada navegación
+      document.addEventListener("astro:page-load", initApp);
+    </script>
+  </body>
+</html>

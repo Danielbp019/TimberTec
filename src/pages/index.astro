@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import Footer from "../components/Footer.astro";
+import rayosImg from "../assets/img/rayos.jpg";
+import pcImg from "../assets/img/pc.jpg";
+---
+
+<Layout title="Timber-Tec">
+  <main class="justify-content-center">
+    <!-- Hero principal -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 id="miFirma">Timber-Tec</h1>
+        <p class="lead">
+          Esta página está pensada para facilitarte herramientas prácticas y rápidas. Aquí encontrarás utilidades como
+          la calculadora de consumo eléctrico y la calculadora de presupuesto para PC. Todo en un mismo lugar,
+          accesible y optimizado para que ahorres tiempo.
+        </p>
+        <a href="#herramientas" class="btn btn-warning btn-lg">Explorar herramientas</a>
+      </div>
+    </section>
+
+    <!-- Sección de herramientas -->
+    <section id="herramientas" class="container-fluid px-4 py-5">
+      <header class="text-center mb-4">
+        <h2 class="fw-bold display-5">Menú de aplicación</h2>
+      </header>
+      <div class="row justify-content-center align-items-stretch g-4">
+        <div class="col-lg-4">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+            <Image
+              src={rayosImg}
+              alt="Fondo con rayos de luz abstractos"
+              format="webp"
+              quality={80}
+              class="card-background-image"
+            />
+            <div class="overlay"></div>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <h3 class="mb-4 display-6 lh-1 fw-bold">Calculadora de consumo eléctrico</h3>
+              <div class="mt-auto d-grid gap-2">
+                <a href="consumo/" class="btn btn-warning overlay-button" role="button">Ir a la Calculadora</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+            <Image
+              src={pcImg}
+              alt="Componentes internos de un ordenador"
+              format="webp"
+              quality={80}
+              class="card-background-image"
+            />
+            <div class="overlay"></div>
+            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+              <h3 class="mb-4 display-6 lh-1 fw-bold">Calculadora de presupuesto para PC</h3>
+              <div class="mt-auto d-grid gap-2">
+                <a href="presupuesto/" class="btn btn-warning overlay-button" role="button">Ir al Presupuesto</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div id="fall-divider"></div>
+
+    <!-- Footer Component -->
+    <Footer />
+
+    <!-- Componentes -->
+    <ThemeToggle />
+  </main>
+</Layout>

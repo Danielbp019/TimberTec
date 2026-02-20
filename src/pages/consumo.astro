@@ -1,0 +1,270 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import Footer from "../components/Footer.astro";
+import "../assets/styles/consumo.css";
+---
+
+<Layout title="Calculadora de Consumo Eléctrico">
+  <main class="justify-content-center pt-2">
+    <header class="text-center mb-4">
+      <h1 class="fw-bold display-4">Calculadora de Consumo Eléctrico</h1>
+    </header>
+
+    <section class="container-fluid row">
+      <article class="col-md-3 mb-3 py-3">
+        <div class="card">
+          <div class="card-body">
+            <fieldset>
+              <legend>Datos</legend>
+              <form id="form" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label for="alias" class="form-label">
+                    Alias (*)
+                    <i
+                      class="bi bi-info-circle-fill"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      data-bs-title="Sobrenombre al cálculo que realizarás"></i>
+                    :
+                  </label>
+                  <input type="text" id="alias" name="alias" class="form-control" spellcheck="true" required />
+                  <div class="invalid-feedback">El campo Alias es requerido.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="costeEnergia" class="form-label">
+                    Costo de Energía (kWh) (*)
+                    <i
+                      class="bi bi-info-circle-fill"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      data-bs-title="Está en el recibo de cobro de electricidad o en la web de la empresa que te da el servicio"
+                    ></i>
+                    :
+                  </label>
+                  <input
+                    type="number"
+                    pattern="\d+(\.\d{1,})?"
+                    id="costeEnergia"
+                    name="costeEnergia"
+                    class="form-control"
+                    min="1"
+                    required
+                  />
+                  <div class="invalid-feedback">El campo Costo de Energía es requerido.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="consumo" class="form-label">
+                    Consumo (W) (*)
+                    <i
+                      class="bi bi-info-circle-fill"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      data-bs-title="Consumo del aparato a medir"></i>
+                    :
+                  </label>
+                  <input
+                    type="number"
+                    pattern="\d+(\.\d{1,})?"
+                    id="consumo"
+                    name="consumo"
+                    class="form-control"
+                    min="1"
+                    required
+                  />
+                  <div class="invalid-feedback">El campo Consumo es requerido.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="usoDiario" class="form-label">
+                    Uso Diario (Seleccione las horas) (*)
+                    <i
+                      class="bi bi-info-circle-fill"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      data-bs-title="Horas de uso diario"></i>
+                    :
+                  </label>
+                  <select id="usoDiario" name="usoDiario" class="form-control" required>
+                    <!-- Las opciones se generarán dinámicamente con JavaScript -->
+                  </select>
+                  <div class="invalid-feedback">El campo Uso Diario es requerido.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="moneda" class="form-label">
+                    Moneda (Seleccione el formato) (*)
+                    <i
+                      class="bi bi-info-circle-fill"
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="right"
+                      data-bs-title="Tipo de moneda para realizar el cálculo"></i>
+                    :
+                  </label>
+                  <select id="moneda" name="moneda" class="form-control" required>
+                    <option value="COP">COP - Peso Colombiano</option>
+                    <option value="USD">USD - Dólar Estadounidense</option>
+                    <option value="EUR">EUR - Euro</option>
+                  </select>
+                  <div class="invalid-feedback">El campo Moneda es requerido.</div>
+                </div>
+                <div class="text-center">
+                  <button type="button" class="btn btn-primary" id="btnCalcular">
+                    Calcular <i class="bi bi-calculator-fill"></i>
+                  </button>
+                  <button type="reset" class="btn btn-warning">Reiniciar <i class="bi bi-x-octagon-fill"></i></button>
+                </div>
+              </form>
+            </fieldset>
+          </div>
+        </div>
+      </article>
+      <article class="col-md-9 mb-3 py-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5 class="card-title mb-0">Últimos 10 Cálculos</h5>
+              <button
+                id="btnLimpiarTabla"
+                class="btn btn-sm btn-outline-danger"
+                title="Limpiar tabla"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                data-bs-title="Limpiar tabla"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+            <table id="tablaCalculos" class="table table-hover">
+              <thead>
+                <tr>
+                  <th style="width: 150px">Alias</th>
+                  <th>Costo de Energía (kWh)</th>
+                  <th>Consumo (W)</th>
+                  <th>Uso Diario (horas)</th>
+                  <th>Gasto De Dinero Mensual (30 días)</th>
+                  <th>Gasto De Dinero Anual (365 días)</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div id="fall-divider"></div>
+
+    <Footer />
+    <ThemeToggle />
+  </main>
+</Layout>
+
+<script>
+  import { Tooltip } from "bootstrap";
+  const calculos: any[] = [];
+
+  function actualizarTabla() {
+    const tabla = document.getElementById("tablaCalculos") as HTMLTableElement;
+    const tbody = tabla?.getElementsByTagName("tbody")[0];
+    if (!tbody) return;
+
+    tbody.innerHTML = "";
+
+    calculos.forEach((calculo) => {
+      const row = tbody.insertRow();
+      row.insertCell(0).textContent = calculo.alias;
+      row.insertCell(1).textContent = calculo.costeEnergia;
+      row.insertCell(2).textContent = calculo.consumo;
+      row.insertCell(3).textContent = calculo.usoDiario;
+      row.insertCell(4).textContent = calculo.gastoMensualFormateado;
+      row.insertCell(5).textContent = calculo.gastoAnualFormateado;
+    });
+  }
+
+  document.addEventListener("astro:page-load", () => {
+    const form = document.getElementById("form") as HTMLFormElement;
+    const btnCalcular = document.getElementById("btnCalcular");
+    const btnLimpiarTabla = document.getElementById("btnLimpiarTabla");
+
+    // Inicializar Tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    [...tooltipTriggerList].map((tooltipTriggerEl) => new Tooltip(tooltipTriggerEl));
+
+    // Generar opciones para el select de Uso Diario (horas)
+    const usoDiarioSelect = document.getElementById("usoDiario") as HTMLSelectElement;
+    if (usoDiarioSelect) {
+      usoDiarioSelect.innerHTML = ""; // Limpiar por seguridad
+      for (let i = 1; i <= 24; i++) {
+        const option = document.createElement("option");
+        option.value = i.toString();
+        option.textContent = i.toString();
+        if (i === 8) option.selected = true;
+        usoDiarioSelect.appendChild(option);
+      }
+    }
+
+    // Restaurar tabla si hay datos previos (SPA feature)
+    actualizarTabla();
+
+    // Validación Bootstrap
+    form?.addEventListener("submit", (event) => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add("was-validated");
+    });
+
+    // Función limpiar tabla
+    btnLimpiarTabla?.addEventListener("click", () => {
+      calculos.length = 0;
+      actualizarTabla();
+    });
+
+    // Función calcular
+    btnCalcular?.addEventListener("click", () => {
+      if (!form || !form.checkValidity()) {
+        form?.classList.add("was-validated");
+        return;
+      }
+
+      const alias = (document.getElementById("alias") as HTMLInputElement).value;
+      const costeEnergia = parseFloat((document.getElementById("costeEnergia") as HTMLInputElement).value);
+      const consumo = parseFloat((document.getElementById("consumo") as HTMLInputElement).value);
+      const usoDiario = parseFloat((document.getElementById("usoDiario") as HTMLInputElement).value);
+      const moneda = (document.getElementById("moneda") as HTMLSelectElement).value;
+
+      const consumoDiarioKWh = (consumo * usoDiario) / 1000;
+      const gastoDiario = consumoDiarioKWh * costeEnergia;
+      const gastoMensual = gastoDiario * 30;
+      const gastoAnual = gastoDiario * 365;
+
+      let formatoMoneda: [string, Intl.NumberFormatOptions] = ["es-CO", { style: "currency", currency: "COP" }];
+      let simboloMoneda = "COP";
+
+      if (moneda === "USD") {
+        formatoMoneda = ["en-US", { style: "currency", currency: "USD" }];
+        simboloMoneda = "USD";
+      } else if (moneda === "EUR") {
+        formatoMoneda = ["de-DE", { style: "currency", currency: "EUR" }];
+        simboloMoneda = "EUR";
+      }
+
+      const gastoAnualFormateado = `${simboloMoneda} ${gastoAnual.toLocaleString(...formatoMoneda)}`;
+      const gastoMensualFormateado = `${simboloMoneda} ${gastoMensual.toLocaleString(...formatoMoneda)}`;
+
+      const calculo = {
+        alias,
+        costeEnergia,
+        consumo,
+        usoDiario,
+        gastoAnualFormateado,
+        gastoMensualFormateado,
+      };
+
+      calculos.unshift(calculo);
+      if (calculos.length > 10) calculos.pop();
+
+      actualizarTabla();
+    });
+  });
+</script>

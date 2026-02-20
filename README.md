@@ -13,10 +13,10 @@ https://timbertec.pages.dev/
 # Imágenes del proyecto
 
 - **Menú inicial:**
-  ![Menú](./assets/img/readme/menu.jpg)
+  ![Menú](ImgReadme/menu.jpg)
 
 - **Calculadora:**
-  ![Calculadora](./assets/img/readme/calculadora.jpg)
+  ![Calculadora](ImgReadme/calculadora.jpg)
 
 - **Presupuesto:**
-  ![Presupuesto](./assets/img/readme/presupuesto.jpg)
+  ![Presupuesto](ImgReadme/presupuesto.jpg)
