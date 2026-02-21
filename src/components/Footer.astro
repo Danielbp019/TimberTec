@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import firmaImg from "../assets/img/daniel_firma_w.svg";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -6,8 +8,8 @@ const currentYear = new Date().getFullYear();
   <div class="row align-items-center text-center text-md-start">
     <!-- Firma a la izquierda -->
     <div class="col-md-6 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
-      <span class="text-body-secondary">© 2024 - <span id="anioActual">{currentYear}</span>,</span>
-      <span id="miFirma" class="ms-2" style="font-size: 26px">Daniel Bautista Pradilla.</span>
+      <span class="text-body-secondary mt-1">© 2024 - <span id="anioActual">{currentYear}</span>,</span>
+      <Image src={firmaImg} alt="Daniel Bautista Pradilla" class="ms-2" height={35} />
     </div>
 
     <!-- Enlaces a la derecha -->

@@ -2,18 +2,15 @@
   font-family: "Nunito";
   src: url("/fonts/Nunito/Nunito-VariableFont_wght.ttf") format("truetype");
 }
-/* AlexBrush (solo Regular) */
+
 @font-face {
-  font-family: "AlexBrush";
-  src: url("/fonts/AlexBrush/AlexBrush-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  font-family: "Orbitron";
+  src: url("/fonts/Orbitron/Orbitron-VariableFont_wght.ttf") format("truetype");
 }
 
-/* Firma*/
-#miFirma {
-  font-family: "AlexBrush", cursive;
+/* Fuente Orbitron para titulos */
+.font-orbitron {
+  font-family: "Orbitron", sans-serif !important;
 }
 
 /* General */
