@@ -107,7 +107,7 @@ lite-youtube {
 /* Hero */
 .hero {
   position: relative;
-  background-image: url("../img/fondo-hero.jpg");
+  background-image: url("../img/fondo-hero.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
