@@ -12,7 +12,7 @@ const { title = "Timber-Tec" } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" data-bs-theme="auto">
+<html lang="es" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,52 +27,6 @@ const { title = "Timber-Tec" } = Astro.props;
     <slot />
     <script>
       import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
-      // Función para inicializar el tema y los tooltips
-      const initApp = () => {
-        // 1. Lógica del Tema (Dark/Light Mode)
-        const getStoredTheme = () => localStorage.getItem("theme");
-        const setStoredTheme = (theme: string) => localStorage.setItem("theme", theme);
-
-        const getPreferredTheme = () => {
-          const storedTheme = getStoredTheme();
-          if (storedTheme) return storedTheme;
-          return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        };
-
-        const setTheme = (theme: string) => {
-          document.documentElement.setAttribute(
-            "data-bs-theme",
-            theme === "auto" && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : theme,
-          );
-        };
-
-        const showActiveTheme = (theme: string) => {
-          const themeSwitch = document.querySelector("#themeSwitch") as HTMLInputElement;
-          const themeIconActive = document.querySelector(".theme-icon-active use");
-
-          if (themeSwitch && themeIconActive) {
-            const isDark = theme === "dark";
-            themeSwitch.checked = isDark;
-            themeIconActive.setAttribute("href", isDark ? "#moon-stars-fill" : "#sun-fill");
-          }
-        };
-
-        const currentTheme = getPreferredTheme();
-        setTheme(currentTheme);
-        showActiveTheme(currentTheme);
-
-        const themeSwitch = document.querySelector("#themeSwitch");
-        themeSwitch?.addEventListener("change", (e) => {
-          const newTheme = (e.target as HTMLInputElement).checked ? "dark" : "light";
-          setStoredTheme(newTheme);
-          setTheme(newTheme);
-          showActiveTheme(newTheme);
-        });
-      };
-
-      // Ejecutar en cada navegación
-      document.addEventListener("astro:page-load", initApp);
     </script>
   </body>
 </html>
