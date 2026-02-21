@@ -22,11 +22,14 @@ const { title = "Timber-Tec" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ClientRouter />
+    <script>
+      // @ts-ignore
+      import * as bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js";
+      // @ts-ignore
+      window.bootstrap = bootstrap;
+    </script>
   </head>
   <body id="contenido" transition:animate={fade({ duration: "0.5s" })}>
     <slot />
-    <script>
-      import "bootstrap/dist/js/bootstrap.bundle.min.js";
-    </script>
   </body>
 </html>

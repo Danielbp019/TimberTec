@@ -163,8 +163,6 @@ import Navbar from "../components/Navbar.astro";
 </Layout>
 
 <script>
-  // @ts-ignore
-  import { Tooltip } from "bootstrap";
   const calculos: any[] = [];
 
   function actualizarTabla() {
@@ -192,7 +190,8 @@ import Navbar from "../components/Navbar.astro";
 
     // Inicializar Tooltips
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    [...tooltipTriggerList].map((tooltipTriggerEl) => new Tooltip(tooltipTriggerEl));
+    // @ts-ignore
+    [...tooltipTriggerList].map((tooltipTriggerEl) => new window.bootstrap.Tooltip(tooltipTriggerEl));
 
     // Generar opciones para el select de Uso Diario (horas)
     const usoDiarioSelect = document.getElementById("usoDiario") as HTMLSelectElement;
