@@ -10,13 +10,13 @@ Programa inspirado en la idea de @HeLion1ero. Con base en la cantidad de dinero 
 
 https://timbertec.pages.dev/
 
-# Imágenes del proyecto
+# Imágenes del proyecto (Rediseño de HTML a Astro)
 
 - **Menú inicial:**
-  ![Menú](ImgReadme/menu.jpg)
+  ![Menú](ImgReadme/menu.png)
 
 - **Calculadora:**
-  ![Calculadora](ImgReadme/calculadora.jpg)
+  ![Calculadora](ImgReadme/calculadora.png)
 
 - **Presupuesto:**
-  ![Presupuesto](ImgReadme/presupuesto.jpg)
+  ![Presupuesto](ImgReadme/presupuesto.png)
