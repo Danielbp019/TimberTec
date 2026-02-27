@@ -1,7 +1,7 @@
 {
   "name": "timbertec",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.17.1",
+    "astro": "^5.18.0",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "lite-youtube-embed": "^0.3.4"
