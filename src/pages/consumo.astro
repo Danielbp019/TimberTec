@@ -188,11 +188,6 @@ import Navbar from "../components/Navbar.astro";
     const btnCalcular = document.getElementById("btnCalcular");
     const btnLimpiarTabla = document.getElementById("btnLimpiarTabla");
 
-    // Inicializar Tooltips
-    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-    // @ts-ignore
-    [...tooltipTriggerList].map((tooltipTriggerEl) => new window.bootstrap.Tooltip(tooltipTriggerEl));
-
     // Generar opciones para el select de Uso Diario (horas)
     const usoDiarioSelect = document.getElementById("usoDiario") as HTMLSelectElement;
     if (usoDiarioSelect) {

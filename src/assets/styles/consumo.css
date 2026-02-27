@@ -99,3 +99,55 @@ lite-youtube {
     0 0 10px #fff8e7,
     0 0 20px #fff8e7;
 }
+
+/* Divisor RGB animado */
+.rgb-divider {
+  height: 2px;
+  width: 100%;
+  animation: rgb-glow 5s linear infinite;
+}
+
+@keyframes rgb-glow {
+  0% {
+    background-color: #ff0000;
+    box-shadow:
+      0 0 10px #ff0000,
+      0 0 20px #ff0000;
+  }
+  16% {
+    background-color: #ffff00;
+    box-shadow:
+      0 0 10px #ffff00,
+      0 0 20px #ffff00;
+  }
+  33% {
+    background-color: #00ff00;
+    box-shadow:
+      0 0 10px #00ff00,
+      0 0 20px #00ff00;
+  }
+  50% {
+    background-color: #00ffff;
+    box-shadow:
+      0 0 10px #00ffff,
+      0 0 20px #00ffff;
+  }
+  66% {
+    background-color: #0000ff;
+    box-shadow:
+      0 0 10px #0000ff,
+      0 0 20px #0000ff;
+  }
+  83% {
+    background-color: #ff00ff;
+    box-shadow:
+      0 0 10px #ff00ff,
+      0 0 20px #ff00ff;
+  }
+  100% {
+    background-color: #ff0000;
+    box-shadow:
+      0 0 10px #ff0000,
+      0 0 20px #ff0000;
+  }
+}

@@ -27,6 +27,12 @@ const { title = "Timber-Tec" } = Astro.props;
       import * as bootstrap from "bootstrap/dist/js/bootstrap.bundle.min.js";
       // @ts-ignore
       window.bootstrap = bootstrap;
+      // Tooltips
+      document.addEventListener("astro:page-load", () => {
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+        // @ts-ignore
+        [...tooltipTriggerList].map((tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl));
+      });
     </script>
   </head>
   <body id="contenido" transition:animate={fade({ duration: "0.5s" })}>

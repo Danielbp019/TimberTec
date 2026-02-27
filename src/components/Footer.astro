@@ -4,12 +4,13 @@ import firmaImg from "../assets/img/daniel_firma_w.svg";
 const currentYear = new Date().getFullYear();
 ---
 
+<div class="rgb-divider"></div>
 <footer class="container py-4 mt-3">
   <div class="row align-items-center text-center text-md-start">
     <!-- Firma a la izquierda -->
     <div class="col-md-6 mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start align-items-center">
       <span class="text-body-secondary mt-1">© 2024 - <span id="anioActual">{currentYear}</span>,</span>
-      <Image src={firmaImg} alt="Daniel Bautista Pradilla" class="ms-2" height={35} />
+      <Image src={firmaImg} alt="Daniel Bautista Pradilla" class="ms-2" height={32} />
     </div>
 
     <!-- Enlaces a la derecha -->
@@ -19,6 +20,9 @@ const currentYear = new Date().getFullYear();
         href="https://github.com/Danielbp019/"
         target="_blank"
         aria-label="Perfil de GitHub"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-title="Mi GitHub"
       >
         <i class="bi bi-github" style="font-size: 1.5rem"></i>
       </a>
@@ -27,10 +31,20 @@ const currentYear = new Date().getFullYear();
         href="https://getbootstrap.com/"
         target="_blank"
         aria-label="Sitio oficial de Bootstrap"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-title="Bootstrap"
       >
         <i class="bi bi-bootstrap-fill" style="font-size: 1.5rem"></i>
       </a>
-      <a class="text-body-secondary" href="#top" aria-label="Ir arriba">
+      <a
+        class="text-body-secondary"
+        href="#top"
+        aria-label="Ir arriba"
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-title="Ir arriba"
+      >
         <i class="bi bi-arrow-up-circle-fill" style="font-size: 1.5rem"></i>
       </a>
     </div>

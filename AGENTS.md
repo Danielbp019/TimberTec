@@ -6,6 +6,8 @@
 
 # tecnologias usadas
 
-- "astro": "5.17.1",
-- "bootstrap": "5.3.8",
-- "bootstrap-icons": "1.13.1"
+- Astro
+- Bootstrap
+- Bootstrap-icons
+- Lite-youtube-embed
+- @astrojs/sitemap
