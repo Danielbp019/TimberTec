@@ -9,8 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.18.0",
+    "@astrojs/sitemap": "3.7.2",
+    "astro": "6.3.5",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "lite-youtube-embed": "^0.3.4"
